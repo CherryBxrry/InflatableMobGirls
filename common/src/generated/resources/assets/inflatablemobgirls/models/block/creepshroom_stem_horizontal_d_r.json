@@ -1,0 +1,8 @@
+{
+  "parent": "inflatablemobgirls:block/connected_column_horizontal",
+  "textures": {
+    "end": "inflatablemobgirls:block/creepshroom_stem_top_d_r",
+    "particle": "inflatablemobgirls:block/creepshroom_stem_sides",
+    "side": "inflatablemobgirls:block/creepshroom_stem_sides"
+  }
+}

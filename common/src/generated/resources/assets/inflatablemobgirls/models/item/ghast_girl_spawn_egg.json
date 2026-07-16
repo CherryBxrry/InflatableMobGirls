@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "inflatablemobgirls:item/ghast_girl_spawn_egg"
+  }
+}

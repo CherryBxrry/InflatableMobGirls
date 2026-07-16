@@ -1,0 +1,12 @@
+{
+  "entries": [
+    {
+      "enum": "net/minecraft/client/resources/model/EquipmentClientInfo$LayerType",
+      "name": "inflatablemobgirls_GHAST_GIRL_BODY",
+      "constructor": "(Ljava/lang/String;)V",
+      "parameters": [
+        "inflatablemobgirls:ghast_girl_body"
+      ]
+    }
+  ]
+}

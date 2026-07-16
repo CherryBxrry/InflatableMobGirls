@@ -1,0 +1,196 @@
+{
+  "variants": {
+    "axis=x,down=false,left=false,right=false,up=false": {
+      "model": "inflatablemobgirls:block/creepshroom_stem_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=x,down=false,left=false,right=false,up=true": {
+      "model": "inflatablemobgirls:block/creepshroom_stem_horizontal_u",
+      "x": 90,
+      "y": 90
+    },
+    "axis=x,down=false,left=false,right=true,up=false": {
+      "model": "inflatablemobgirls:block/creepshroom_stem_horizontal_r",
+      "x": 90,
+      "y": 90
+    },
+    "axis=x,down=false,left=false,right=true,up=true": {
+      "model": "inflatablemobgirls:block/creepshroom_stem_horizontal_u_r",
+      "x": 90,
+      "y": 90
+    },
+    "axis=x,down=false,left=true,right=false,up=false": {
+      "model": "inflatablemobgirls:block/creepshroom_stem_horizontal_l",
+      "x": 90,
+      "y": 90
+    },
+    "axis=x,down=false,left=true,right=false,up=true": {
+      "model": "inflatablemobgirls:block/creepshroom_stem_horizontal_u_l",
+      "x": 90,
+      "y": 90
+    },
+    "axis=x,down=false,left=true,right=true,up=false": {
+      "model": "inflatablemobgirls:block/creepshroom_stem_horizontal_l_r",
+      "x": 90,
+      "y": 90
+    },
+    "axis=x,down=false,left=true,right=true,up=true": {
+      "model": "inflatablemobgirls:block/creepshroom_stem_horizontal_u_l_r",
+      "x": 90,
+      "y": 90
+    },
+    "axis=x,down=true,left=false,right=false,up=false": {
+      "model": "inflatablemobgirls:block/creepshroom_stem_horizontal_d",
+      "x": 90,
+      "y": 90
+    },
+    "axis=x,down=true,left=false,right=false,up=true": {
+      "model": "inflatablemobgirls:block/creepshroom_stem_horizontal_u_d",
+      "x": 90,
+      "y": 90
+    },
+    "axis=x,down=true,left=false,right=true,up=false": {
+      "model": "inflatablemobgirls:block/creepshroom_stem_horizontal_d_r",
+      "x": 90,
+      "y": 90
+    },
+    "axis=x,down=true,left=false,right=true,up=true": {
+      "model": "inflatablemobgirls:block/creepshroom_stem_horizontal_u_d_r",
+      "x": 90,
+      "y": 90
+    },
+    "axis=x,down=true,left=true,right=false,up=false": {
+      "model": "inflatablemobgirls:block/creepshroom_stem_horizontal_d_l",
+      "x": 90,
+      "y": 90
+    },
+    "axis=x,down=true,left=true,right=false,up=true": {
+      "model": "inflatablemobgirls:block/creepshroom_stem_horizontal_u_d_l",
+      "x": 90,
+      "y": 90
+    },
+    "axis=x,down=true,left=true,right=true,up=false": {
+      "model": "inflatablemobgirls:block/creepshroom_stem_horizontal_d_l_r",
+      "x": 90,
+      "y": 90
+    },
+    "axis=x,down=true,left=true,right=true,up=true": {
+      "model": "inflatablemobgirls:block/creepshroom_stem_horizontal_u_d_l_r",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y,down=false,left=false,right=false,up=false": {
+      "model": "inflatablemobgirls:block/creepshroom_stem"
+    },
+    "axis=y,down=false,left=false,right=false,up=true": {
+      "model": "inflatablemobgirls:block/creepshroom_stem_u"
+    },
+    "axis=y,down=false,left=false,right=true,up=false": {
+      "model": "inflatablemobgirls:block/creepshroom_stem_r"
+    },
+    "axis=y,down=false,left=false,right=true,up=true": {
+      "model": "inflatablemobgirls:block/creepshroom_stem_u_r"
+    },
+    "axis=y,down=false,left=true,right=false,up=false": {
+      "model": "inflatablemobgirls:block/creepshroom_stem_l"
+    },
+    "axis=y,down=false,left=true,right=false,up=true": {
+      "model": "inflatablemobgirls:block/creepshroom_stem_u_l"
+    },
+    "axis=y,down=false,left=true,right=true,up=false": {
+      "model": "inflatablemobgirls:block/creepshroom_stem_l_r"
+    },
+    "axis=y,down=false,left=true,right=true,up=true": {
+      "model": "inflatablemobgirls:block/creepshroom_stem_u_l_r"
+    },
+    "axis=y,down=true,left=false,right=false,up=false": {
+      "model": "inflatablemobgirls:block/creepshroom_stem_d"
+    },
+    "axis=y,down=true,left=false,right=false,up=true": {
+      "model": "inflatablemobgirls:block/creepshroom_stem_u_d"
+    },
+    "axis=y,down=true,left=false,right=true,up=false": {
+      "model": "inflatablemobgirls:block/creepshroom_stem_d_r"
+    },
+    "axis=y,down=true,left=false,right=true,up=true": {
+      "model": "inflatablemobgirls:block/creepshroom_stem_u_d_r"
+    },
+    "axis=y,down=true,left=true,right=false,up=false": {
+      "model": "inflatablemobgirls:block/creepshroom_stem_d_l"
+    },
+    "axis=y,down=true,left=true,right=false,up=true": {
+      "model": "inflatablemobgirls:block/creepshroom_stem_u_d_l"
+    },
+    "axis=y,down=true,left=true,right=true,up=false": {
+      "model": "inflatablemobgirls:block/creepshroom_stem_d_l_r"
+    },
+    "axis=y,down=true,left=true,right=true,up=true": {
+      "model": "inflatablemobgirls:block/creepshroom_stem_u_d_l_r"
+    },
+    "axis=z,down=false,left=false,right=false,up=false": {
+      "model": "inflatablemobgirls:block/creepshroom_stem_horizontal",
+      "x": 90
+    },
+    "axis=z,down=false,left=false,right=false,up=true": {
+      "model": "inflatablemobgirls:block/creepshroom_stem_horizontal_u",
+      "x": 90
+    },
+    "axis=z,down=false,left=false,right=true,up=false": {
+      "model": "inflatablemobgirls:block/creepshroom_stem_horizontal_r",
+      "x": 90
+    },
+    "axis=z,down=false,left=false,right=true,up=true": {
+      "model": "inflatablemobgirls:block/creepshroom_stem_horizontal_u_r",
+      "x": 90
+    },
+    "axis=z,down=false,left=true,right=false,up=false": {
+      "model": "inflatablemobgirls:block/creepshroom_stem_horizontal_l",
+      "x": 90
+    },
+    "axis=z,down=false,left=true,right=false,up=true": {
+      "model": "inflatablemobgirls:block/creepshroom_stem_horizontal_u_l",
+      "x": 90
+    },
+    "axis=z,down=false,left=true,right=true,up=false": {
+      "model": "inflatablemobgirls:block/creepshroom_stem_horizontal_l_r",
+      "x": 90
+    },
+    "axis=z,down=false,left=true,right=true,up=true": {
+      "model": "inflatablemobgirls:block/creepshroom_stem_horizontal_u_l_r",
+      "x": 90
+    },
+    "axis=z,down=true,left=false,right=false,up=false": {
+      "model": "inflatablemobgirls:block/creepshroom_stem_horizontal_d",
+      "x": 90
+    },
+    "axis=z,down=true,left=false,right=false,up=true": {
+      "model": "inflatablemobgirls:block/creepshroom_stem_horizontal_u_d",
+      "x": 90
+    },
+    "axis=z,down=true,left=false,right=true,up=false": {
+      "model": "inflatablemobgirls:block/creepshroom_stem_horizontal_d_r",
+      "x": 90
+    },
+    "axis=z,down=true,left=false,right=true,up=true": {
+      "model": "inflatablemobgirls:block/creepshroom_stem_horizontal_u_d_r",
+      "x": 90
+    },
+    "axis=z,down=true,left=true,right=false,up=false": {
+      "model": "inflatablemobgirls:block/creepshroom_stem_horizontal_d_l",
+      "x": 90
+    },
+    "axis=z,down=true,left=true,right=false,up=true": {
+      "model": "inflatablemobgirls:block/creepshroom_stem_horizontal_u_d_l",
+      "x": 90
+    },
+    "axis=z,down=true,left=true,right=true,up=false": {
+      "model": "inflatablemobgirls:block/creepshroom_stem_horizontal_d_l_r",
+      "x": 90
+    },
+    "axis=z,down=true,left=true,right=true,up=true": {
+      "model": "inflatablemobgirls:block/creepshroom_stem_horizontal_u_d_l_r",
+      "x": 90
+    }
+  }
+}

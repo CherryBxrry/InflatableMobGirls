@@ -1,0 +1,33 @@
+{
+    "schemaVersion": 1,
+    "id": "${mod_id}",
+    "version": "${version}",
+    "name": "${mod_name}",
+    "description": "${description}",
+    "authors": [
+        "${mod_author}"
+    ],
+    "contact": {
+        "homepage": "https://discord.gg/vgu6eyWme",
+        "sources": "https://github.com/CherryBxrry/inflatable-mob-girls-26.2"
+    },
+    "license": "${license}",
+    "icon": "${mod_id}.png",
+    "environment": "*",
+    "mixins": ["inflatablemobgirls.mixins.json"],
+    "entrypoints": {
+        "main": [
+            "io.github.cherrybxrry.inflatablemobgirls.FabricInflatableMobGirls"
+        ],
+        "client": [
+            "io.github.cherrybxrry.inflatablemobgirls.FabricInflatableMobGirlsClient"
+        ]
+    },
+    "depends": {
+        "fabricloader": ">=${fabric_loader_version}",
+        "fabric-api": "*",
+        "minecraft": "~${minecraft_version}",
+        "java": ">=${java_version}"
+    }
+}
+  

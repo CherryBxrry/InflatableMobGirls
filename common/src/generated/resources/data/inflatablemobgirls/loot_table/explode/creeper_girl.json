@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:entity",
+  "pools": [
+    {
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "chance": 0.25,
+              "condition": "minecraft:random_chance"
+            }
+          ],
+          "name": "inflatablemobgirls:creepspore"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "inflatablemobgirls:explode/creeper_girl"
+}

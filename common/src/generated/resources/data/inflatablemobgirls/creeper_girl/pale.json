@@ -1,0 +1,19 @@
+{
+  "assets": {
+    "charged": "inflatablemobgirls:entity/creeper_girl/creeper_girl_pale_charged",
+    "normal": "inflatablemobgirls:entity/creeper_girl/creeper_girl_pale"
+  },
+  "baby_assets": {
+    "charged": "inflatablemobgirls:entity/creeper_girl/creeper_girl_pale_charged_baby",
+    "normal": "inflatablemobgirls:entity/creeper_girl/creeper_girl_pale_baby"
+  },
+  "spawn_conditions": [
+    {
+      "condition": {
+        "type": "minecraft:biome",
+        "biomes": "minecraft:sunflower_plains"
+      },
+      "priority": 1
+    }
+  ]
+}

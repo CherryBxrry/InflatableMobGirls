@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:simple_block",
+  "config": {
+    "to_place": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "inflatablemobgirls:nether_geyser",
+        "Properties": {
+          "facing": "north",
+          "nether_geyser_state": "dormant",
+          "waterlogged": "false"
+        }
+      }
+    }
+  }
+}
