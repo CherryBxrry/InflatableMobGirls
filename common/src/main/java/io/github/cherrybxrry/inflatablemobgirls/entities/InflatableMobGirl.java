@@ -1,10 +1,7 @@
 package io.github.cherrybxrry.inflatablemobgirls.entities;
 
 import com.google.common.annotations.VisibleForTesting;
-import io.github.cherrybxrry.inflatablemobgirls.init.ModDataComponents;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.component.DataComponentGetter;
-import net.minecraft.core.component.DataComponentType;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundAddEntityPacket;

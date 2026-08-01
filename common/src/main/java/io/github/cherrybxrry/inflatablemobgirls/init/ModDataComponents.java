@@ -6,8 +6,6 @@ import io.github.cherrybxrry.inflatablemobgirls.platform.Services;
 import io.github.cherrybxrry.inflatablemobgirls.platform.util.RegistryHandle;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponentType;
-import net.minecraft.network.codec.ByteBufCodecs;
-import net.minecraft.util.ExtraCodecs;
 
 public final class ModDataComponents {
     private ModDataComponents() {

@@ -9,12 +9,15 @@
     ],
     "contact": {
         "homepage": "https://discord.gg/vgu6eyWme",
-        "sources": "https://github.com/CherryBxrry/inflatable-mob-girls-26.2"
+        "sources": "${website}"
     },
     "license": "${license}",
     "icon": "${mod_id}.png",
     "environment": "*",
-    "mixins": ["inflatablemobgirls.mixins.json"],
+    "mixins": [
+        "${mod_id}.mixins.json",
+        "${mod_id}.fabric.mixins.json"
+    ],
     "entrypoints": {
         "main": [
             "io.github.cherrybxrry.inflatablemobgirls.FabricInflatableMobGirls"

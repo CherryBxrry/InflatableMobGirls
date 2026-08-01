@@ -1,6 +1,0 @@
-{
-  "parent": "inflatablemobgirls:block/creepspore_crop",
-  "textures": {
-    "crop": "inflatablemobgirls:block/creepspore_crop_stage4"
-  }
-}

@@ -17,6 +17,8 @@ public final class ModLootTables {
     }
 
     public static final ResourceKey<LootTable> EXPLODE_CREEPER_GIRL = register("explode/creeper_girl");
+    public static final ResourceKey<LootTable> CHARGED_CREEPER_CREEPER_GIRL = register("charged_creeper/creeper_girl");
+    public static final ResourceKey<LootTable> CHARGED_CREEPER_GIRL = register("charged_creeper/root");
 
     private static ResourceKey<LootTable> register(final String location) {
         return register(ResourceKey.create(Registries.LOOT_TABLE, Constants.id(location)));

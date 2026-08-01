@@ -4,8 +4,6 @@ import io.github.cherrybxrry.inflatablemobgirls.Constants;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
 
 public final class ModEntityTypeTags {
     private ModEntityTypeTags() {

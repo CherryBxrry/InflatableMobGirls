@@ -26,6 +26,7 @@ public class InflatableMobGirls {
         ModEntityTypes.load();
         ModCreativeTabs.load();
         ModFeatures.load();
+        ModPackets.load();
         ModWorldGen.load();
     }
 }

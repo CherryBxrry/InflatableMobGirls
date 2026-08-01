@@ -25,6 +25,7 @@ public class ModEnglishLangProvider extends LanguageProvider {
         add(Component.translatable("advancements.inflatablemobgirls.nether.oh_the_humanity.description"), "Destroy a Ghast Girl with a fireball");
 
         // Blocks
+        add(ModBlocks.CREEPER_GIRL_HEAD.get(), "Creeper Girl Head");
         add(ModBlocks.CREEPSHROOM.block().get(), "Creepshroom");
         add(ModBlocks.CREEPSPORE_CROP.get(), "Creeper Girl Crop");
         add(ModBlocks.CREEPSHROOM_BLOCK.block().get(), "Creepshroom Block");
@@ -47,6 +48,7 @@ public class ModEnglishLangProvider extends LanguageProvider {
 
         // Items
         add(ModItems.BELLOWS.get(), "Bellows");
+        add(ModItems.CREEPER_GIRL_HEAD.get(), "Creeper Girl Head");
         add(ModItems.CREEPER_GIRL_SPAWN_EGG.get(), "Creeper Girl Spawn Egg");
         add(ModBlocks.CREEPSHROOM.item().get(), "Creepshroom");
         add(ModBlocks.CREEPSHROOM_BLOCK.item().get(), "Creepshroom Block");
@@ -63,6 +65,11 @@ public class ModEnglishLangProvider extends LanguageProvider {
         add(ModItemTags.INFLATES_GHAST_GIRL, "Inflates Ghast Girl");
         add(ModItemTags.TAMES_CREEPER_GIRL, "Tames Creeper Girl");
         add(ModItemTags.TAMES_GHAST_GIRL, "Tames Ghast Girl");
+
+        // Key Mappings
+        add(Component.translatable("key.category.inflatablemobgirls.inflatable_mob_girls"), "Inflatable Mob Girls");
+        add(Component.translatable("key.inflatablemobgirls.melee_attack"), "Ridden Melee Attack");
+        add(Component.translatable("key.inflatablemobgirls.ranged_attack"), "Ridden Ranged Attack");
 
         // Sounds
         add(Component.translatable("sounds.inflatablemobgirls.creeper_girl_inflate"), "Creeper Girl inflates");

@@ -1,8 +1,9 @@
 package io.github.cherrybxrry.inflatablemobgirls.entities.ghastgirl;
 
-import io.github.cherrybxrry.inflatablemobgirls.Constants;
 import io.github.cherrybxrry.inflatablemobgirls.entities.InflatableFlyingMobGirl;
 import io.github.cherrybxrry.inflatablemobgirls.entities.InflatableMobGirl;
+import io.github.cherrybxrry.inflatablemobgirls.entities.PlayerRideableMeleeAttacking;
+import io.github.cherrybxrry.inflatablemobgirls.entities.PlayerRideableRangedAttacking;
 import io.github.cherrybxrry.inflatablemobgirls.entities.ai.goal.LandWhenOrderedToGoal;
 import io.github.cherrybxrry.inflatablemobgirls.entities.ai.goal.MeleeAttackAnimatedGoal;
 import io.github.cherrybxrry.inflatablemobgirls.init.ModBlocks;
@@ -12,13 +13,13 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
-import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.tags.FluidTags;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -52,7 +53,7 @@ import java.util.EnumSet;
 import java.util.List;
 import java.util.Objects;
 
-public class GhastGirl extends InflatableFlyingMobGirl {
+public class GhastGirl extends InflatableFlyingMobGirl implements PlayerRideableMeleeAttacking, PlayerRideableRangedAttacking {
     private static final EntityDataAccessor<Integer> DATA_FUEL_LEVEL;
     private static final EntityDataAccessor<Boolean> DATA_IS_CHARGING;
     private static final EntityDataAccessor<Boolean> DATA_IS_LEASH_HOLDER;
@@ -60,7 +61,7 @@ public class GhastGirl extends InflatableFlyingMobGirl {
     private static final String TAG_EXPLOSION_POWER = "ExplosionPower";
     private static final String TAG_FUEL = "Fuel";
     private static final String TAG_ON_GEYSER = "OnGeyser";
-    private int explosionPower = 1;
+    private int explosionPower = 0;
     private int leashHolderTime = 0;
 
     private static final int DEFAULT_FUEL_LEVEL = 0;
@@ -85,7 +86,8 @@ public class GhastGirl extends InflatableFlyingMobGirl {
     public static final float BLIMP_WIDTH = 2.99F;
     public static final float LEASH_OFFSET = 0.24F;
 
-    private int kickTime = -1;
+    private int kickTime = 0;
+    private int rangedCooldown = 0;
 
     // Animation States
     public AnimationState idleStand0Animation = new AnimationState();
@@ -424,22 +426,26 @@ public class GhastGirl extends InflatableFlyingMobGirl {
 
             this.setLeashHolder(this.leashHolderTime > 0);
 
-            LivingEntity owner = this.getOwner();
-            if (owner != null && (owner.level() != this.level() || this.distanceToSqr(owner) >= (double) 144.0F) || this.isOrderedToSit()) {
+            if (this.isTame() && this.getOwner() == null) {
                 this.getPassengers().forEach(Entity::stopRiding);
             }
         }
 
-        if (this.kickTime >= 0) {
-            this.kickTime--;
-
-            this.setAggressive(true);
-
-            if (this.kickTime == -1) {
+        if (this.kickTime > 0) {
+            --this.kickTime;
+            if (this.kickTime == 5) {
                 this.setAggressive(false);
                 if (this.level() instanceof ServerLevel serverLevel) {
                     this.kick(serverLevel);
                 }
+            }
+        }
+
+        if (this.rangedCooldown > 0) {
+            --this.rangedCooldown;
+            if (this.rangedCooldown == 40) {
+                this.shootFireball(null, this.level());
+                this.setCharging(false);
             }
         }
     }
@@ -545,6 +551,9 @@ public class GhastGirl extends InflatableFlyingMobGirl {
     private void doPlayerRide(Player player) {
         if (!this.level().isClientSide()) {
             player.startRiding(this);
+            if (!this.isVehicle()) {
+                this.clearHome();
+            }
         }
     }
 
@@ -728,10 +737,7 @@ public class GhastGirl extends InflatableFlyingMobGirl {
 
     @Override
     public boolean hurtServer(@NonNull ServerLevel level, @NonNull DamageSource source, float damage) {
-        if (this.getControllingPassenger() instanceof Player controlling && controlling == source.getEntity()) {
-            if (!this.isMaxStage()) this.kickTime = 5;
-            return false;
-        }
+        if (this.getControllingPassenger() instanceof Player controlling && controlling == source.getEntity()) return false;
 
         if (isReflectedFireball(source)) {
             super.hurtServer(level, source, 1000.0F);
@@ -749,6 +755,49 @@ public class GhastGirl extends InflatableFlyingMobGirl {
     @Override
     public boolean canMate(@NonNull Animal partner) {
         return false;
+    }
+
+    @Override
+    public boolean canMeleeAttack() {
+        return !this.isMaxStage();
+    }
+
+    @Override
+    public void handleStartMeleeAttack() {
+        this.kickTime = this.getAttackLength();
+        this.setAggressive(true);
+    }
+
+    @Override
+    public void handleStopMeleeAttack() {
+
+    }
+
+    @Override
+    public int getMeleeAttackCooldown() {
+        return this.kickTime;
+    }
+
+    @Override
+    public boolean canRangedAttack() {
+        return this.getItemBySlot(EquipmentSlot.BODY).is(ItemTags.HARNESSES) && this.getStage() > 0;
+    }
+
+    @Override
+    public void handleStartRangedAttack() {
+        this.rangedCooldown = 50;
+        if (!this.isSilent()) this.level().levelEvent(null, 1015, this.blockPosition(), 0);
+        this.setCharging(true);
+    }
+
+    @Override
+    public void handleStopRangedAttack() {
+
+    }
+
+    @Override
+    public int getRangedAttackCooldown() {
+        return this.rangedCooldown;
     }
 
     /**
@@ -824,10 +873,6 @@ public class GhastGirl extends InflatableFlyingMobGirl {
     @Override
     protected boolean canBeABaby() {
         return false;
-    }
-
-    public Identifier getTexture() {
-        return Constants.id("textures/entity/ghast_girl/ghast_girl.png");
     }
 
     @Override

@@ -10,6 +10,7 @@ public final class ModModelLayers {
 
     public static final ModelLayerLocation CREEPER_GIRL = createLayer("creeper_girl");
     public static final ModelLayerLocation CREEPER_GIRL_BABY = createLayer("creeper_girl_baby");
+    public static final ModelLayerLocation CREEPER_GIRL_HEAD = createLayer("creeper_girl_head");
     public static final ModelLayerLocation CREEPSPORE_CROP = createLayer("creepspore_crop");
     public static final ModelLayerLocation GHAST_GIRL = createLayer("ghast_girl");
     public static final ModelLayerLocation GHAST_GIRL_HARNESS = createLayer("ghast_girl_harness");

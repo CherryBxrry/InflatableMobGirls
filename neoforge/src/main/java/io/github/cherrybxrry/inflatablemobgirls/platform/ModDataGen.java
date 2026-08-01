@@ -2,10 +2,7 @@ package io.github.cherrybxrry.inflatablemobgirls.platform;
 
 import io.github.cherrybxrry.inflatablemobgirls.datagen.*;
 import io.github.cherrybxrry.inflatablemobgirls.datagen.lang.ModEnglishLangProvider;
-import net.minecraft.client.resources.model.EquipmentClientInfo;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
-
-import java.util.Arrays;
 
 public final class ModDataGen {
     private ModDataGen() {
@@ -22,6 +19,7 @@ public final class ModDataGen {
         event.createProvider(ModLootTableProvider::new);
         event.createProvider(ModModelProvider::new);
         event.createProvider(ModParticleDescriptionProvider::new);
+        event.createProvider(ModRecipeProvider.Runner::new);
         event.createProvider(ModWorldGenProvider::new);
     }
 }

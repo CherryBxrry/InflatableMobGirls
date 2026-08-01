@@ -1,7 +1,6 @@
 package io.github.cherrybxrry.inflatablemobgirls.client.renderer.entity.layers;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import io.github.cherrybxrry.inflatablemobgirls.Constants;
 import io.github.cherrybxrry.inflatablemobgirls.client.model.entity.GhastGirlModel;
 import io.github.cherrybxrry.inflatablemobgirls.client.model.entity.GhastGirlRopesModel;
 import io.github.cherrybxrry.inflatablemobgirls.client.renderer.entity.state.GhastGirlRenderState;
@@ -12,7 +11,6 @@ import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.Identifier;
-import net.minecraft.tags.ItemTags;
 import org.jspecify.annotations.NonNull;
 
 public class GhastGirlRopesLayer<M extends GhastGirlModel> extends RenderLayer<GhastGirlRenderState, M> {

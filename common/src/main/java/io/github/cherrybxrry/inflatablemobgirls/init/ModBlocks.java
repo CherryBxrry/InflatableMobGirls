@@ -1,10 +1,7 @@
 package io.github.cherrybxrry.inflatablemobgirls.init;
 
 import io.github.cherrybxrry.inflatablemobgirls.Constants;
-import io.github.cherrybxrry.inflatablemobgirls.blocks.CreepSporeBlock;
-import io.github.cherrybxrry.inflatablemobgirls.blocks.CreepshroomBlock;
-import io.github.cherrybxrry.inflatablemobgirls.blocks.HugeCreepshroomStemBlock;
-import io.github.cherrybxrry.inflatablemobgirls.blocks.NetherGeyserBlock;
+import io.github.cherrybxrry.inflatablemobgirls.blocks.*;
 import io.github.cherrybxrry.inflatablemobgirls.platform.Services;
 import io.github.cherrybxrry.inflatablemobgirls.platform.util.BlockWithItemRegistryHandle;
 import io.github.cherrybxrry.inflatablemobgirls.platform.util.RegistryHandle;
@@ -29,6 +26,22 @@ public final class ModBlocks {
     public static void load() {
         Constants.LOG.info(Constants.REGISTRY_MARKER, "Registering Mod Blocks");
     }
+
+    public static final RegistryHandle<Block> CREEPER_GIRL_HEAD = Services.REGISTRY.registerBlock(
+            "creeper_girl_head",
+            properties -> new CreeperGirlSkullBlock(properties
+                    .instrument(NoteBlockInstrument.CREEPER)
+                    .strength(1.0F)
+                    .pushReaction(PushReaction.DESTROY)
+                    .noOcclusion())
+    );
+
+    public static final RegistryHandle<Block> CREEPER_GIRL_WALL_HEAD = Services.REGISTRY.registerBlock(
+            "creeper_girl_wall_head",
+            properties -> new CreeperGirlWallSkullBlock(wallVariant(properties, CREEPER_GIRL_HEAD.get(), true)
+                    .strength(1.0F)
+                    .pushReaction(PushReaction.DESTROY))
+    );
 
     public static final BlockWithItemRegistryHandle<Block> CREEPSHROOM = Services.REGISTRY.registerBlockWithItem(
             "creepshroom",
@@ -90,6 +103,15 @@ public final class ModBlocks {
 
     private static BlockBehaviour.Properties flowerPotProperties(BlockBehaviour.Properties properties) {
         return properties.instabreak().noOcclusion().pushReaction(PushReaction.DESTROY);
+    }
+
+    private static BlockBehaviour.Properties wallVariant(BlockBehaviour.Properties properties, Block standingBlock, boolean copyName) {
+        BlockBehaviour.Properties wallProperties = properties.overrideLootTable(standingBlock.getLootTable());
+        if (copyName) {
+            wallProperties = wallProperties.overrideDescription(standingBlock.getDescriptionId());
+        }
+
+        return wallProperties;
     }
 
     private static BlockPos postProcessSelf(BlockState state, BlockGetter blockGetter, BlockPos blockPos) {
