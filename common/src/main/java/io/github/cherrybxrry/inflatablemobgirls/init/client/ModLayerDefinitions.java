@@ -2,9 +2,9 @@ package io.github.cherrybxrry.inflatablemobgirls.init.client;
 
 import io.github.cherrybxrry.inflatablemobgirls.Constants;
 import io.github.cherrybxrry.inflatablemobgirls.client.model.blockentity.CreepSporeCropModel;
+import io.github.cherrybxrry.inflatablemobgirls.client.model.blockentity.CreeperGirlHeadModel;
 import io.github.cherrybxrry.inflatablemobgirls.client.model.entity.*;
 import io.github.cherrybxrry.inflatablemobgirls.platform.ServicesClient;
-import net.minecraft.client.model.geom.builders.MeshTransformer;
 
 public final class ModLayerDefinitions {
     private ModLayerDefinitions() {
@@ -15,6 +15,7 @@ public final class ModLayerDefinitions {
         Constants.LOG.info(Constants.REGISTRY_MARKER, "Registering Mod Model Layers");
 
         // Block Entities
+        ServicesClient.CLIENT_REGISTRY.registerModelLayer(ModModelLayers.CREEPER_GIRL_HEAD, CreeperGirlHeadModel::createHeadLayer);
         ServicesClient.CLIENT_REGISTRY.registerModelLayer(ModModelLayers.CREEPSPORE_CROP, CreepSporeCropModel::createBodyLayer);
 
         // Entities

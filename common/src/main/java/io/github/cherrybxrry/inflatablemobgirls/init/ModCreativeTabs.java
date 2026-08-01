@@ -27,6 +27,8 @@ public final class ModCreativeTabs {
                 output.accept(ModBlocks.CREEPSHROOM_BLOCK.item().get());
                 output.accept(ModBlocks.HUGE_CREEPSHROOM_STEM.item().get());
                 output.accept(ModBlocks.NETHER_GEYSER.item().get());
+
+                output.accept(ModItems.CREEPER_GIRL_HEAD.get());
             }
     );
 

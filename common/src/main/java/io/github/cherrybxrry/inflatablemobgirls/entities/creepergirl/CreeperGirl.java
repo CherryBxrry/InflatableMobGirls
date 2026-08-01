@@ -537,8 +537,6 @@ public class CreeperGirl extends InflatableMobGirl {
         return this.getInflateTime() + 1L >= this.getInflateLength() && this.getStage() == 0 && this.isRegenerating();
     }
 
-    // TODO: Add charged particles when charged.
-
     public void setCharged(boolean charged) {
         this.entityData.set(DATA_CHARGED, charged);
     }
@@ -766,7 +764,7 @@ public class CreeperGirl extends InflatableMobGirl {
         if (this.isInflating()) return false;
         boolean hurt = super.hurtServer(level, source, damage);
 
-        if (this.getStage() == 3) {
+        if (this.isMaxStage()) {
             this.setOrderedToSit(true);
             this.jumping = false;
             this.navigation.stop();

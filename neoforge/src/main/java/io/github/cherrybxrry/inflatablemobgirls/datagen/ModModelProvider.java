@@ -2,8 +2,10 @@ package io.github.cherrybxrry.inflatablemobgirls.datagen;
 
 import com.mojang.math.Quadrant;
 import io.github.cherrybxrry.inflatablemobgirls.Constants;
+import io.github.cherrybxrry.inflatablemobgirls.blocks.AbstractMobGirlSkullBlock;
 import io.github.cherrybxrry.inflatablemobgirls.blocks.CreepSporeBlock;
 import io.github.cherrybxrry.inflatablemobgirls.blocks.HugeCreepshroomStemBlock;
+import io.github.cherrybxrry.inflatablemobgirls.client.renderer.special.MobGirlSkullSpecialRenderer;
 import io.github.cherrybxrry.inflatablemobgirls.init.ModBlocks;
 import io.github.cherrybxrry.inflatablemobgirls.init.ModItems;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
@@ -50,6 +52,9 @@ public class ModModelProvider extends ModelProvider {
 
         createNetherGeyser(blockModels, ModBlocks.NETHER_GEYSER.block().get());
 
+        Identifier defaultHeadItemBase = modItemLocation("template_skull");
+        createHead(blockModels, itemModels, ModBlocks.CREEPER_GIRL_HEAD.get(), ModBlocks.CREEPER_GIRL_WALL_HEAD.get(), AbstractMobGirlSkullBlock.Types.CREEPER_GIRL, defaultHeadItemBase);
+
         // Items
         itemModels.generateFlatItem(ModItems.BELLOWS.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.SOUL_CHOCOLATE.get(), ModelTemplates.FLAT_ITEM);
@@ -63,6 +68,17 @@ public class ModModelProvider extends ModelProvider {
 
     public Identifier modBlockLocation(String path) {
         return modLocation("block/" + path);
+    }
+
+    public Identifier modItemLocation(String path) {
+        return modLocation("item/" + path);
+    }
+
+    public void createHead(BlockModelGenerators blockModels, ItemModelGenerators itemModels, Block standAlone, Block wall, AbstractMobGirlSkullBlock.Type skullType, Identifier itemBase) {
+        MultiVariant blockModel = BlockModelGenerators.plainVariant(ModelLocationUtils.decorateBlockModelLocation("skull"));
+        blockModels.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(standAlone, blockModel));
+        blockModels.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(wall, blockModel));
+        itemModels.itemModelOutput.accept(standAlone.asItem(), ItemModelUtils.specialModel(itemBase, BlockModelGenerators.SKULL_TRANSFORM, new MobGirlSkullSpecialRenderer.Unbaked(skullType)));
     }
 
     public void createBlockEntityCropBlock(BlockModelGenerators blockModels, Block block, ModelTemplate template, Property<Integer> property, int... stages) {

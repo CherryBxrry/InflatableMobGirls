@@ -36,10 +36,10 @@ public abstract class CreeperGirlModel extends EntityModel<CreeperGirlRenderStat
         yRot = Mth.clamp(yRot, -30.0F, 30.0F);
         xRot = Mth.clamp(xRot, -25.0F, 45.0F);
 
-        this.getNeck().yRot = (yRot * ((float)Math.PI / 180F)) / 2;
-        this.getNeck().xRot = (xRot * ((float)Math.PI / 180F)) / 2;
-        this.getHead().yRot = (yRot * ((float)Math.PI / 180F)) / 2;
-        this.getHead().xRot = (xRot * ((float)Math.PI / 180F)) / 2;
+        this.getNeck().yRot = (yRot * ((float) Math.PI / 180F)) / 2;
+        this.getNeck().xRot = (xRot * ((float) Math.PI / 180F)) / 2;
+        this.getHead().yRot = (yRot * ((float) Math.PI / 180F)) / 2;
+        this.getHead().xRot = (xRot * ((float) Math.PI / 180F)) / 2;
     }
 
     protected abstract @NotNull ModelPart getHead();

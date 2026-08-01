@@ -3,11 +3,12 @@ package io.github.cherrybxrry.inflatablemobgirls.init;
 import io.github.cherrybxrry.inflatablemobgirls.Constants;
 import io.github.cherrybxrry.inflatablemobgirls.platform.Services;
 import io.github.cherrybxrry.inflatablemobgirls.platform.util.RegistryHandle;
+import net.minecraft.core.Direction;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.SpawnEggItem;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.waypoints.Waypoint;
 
 import java.util.function.Function;
 import java.util.function.Supplier;
@@ -21,7 +22,20 @@ public final class ModItems {
         Constants.LOG.info(Constants.REGISTRY_MARKER, "Registering Mod Items");
     }
 
-    public static final RegistryHandle<Item> CREEPSPORE = Services.REGISTRY.registerItem("creepspore",
+    public static final RegistryHandle<Item> CREEPER_GIRL_HEAD = Services.REGISTRY.registerItem(
+            "creeper_girl_head",
+            properties -> new StandingAndWallBlockItem(
+                    ModBlocks.CREEPER_GIRL_HEAD.get(),
+                    ModBlocks.CREEPER_GIRL_WALL_HEAD.get(),
+                    Direction.DOWN,
+                    Waypoint.addHideAttribute(properties)
+                            .rarity(Rarity.UNCOMMON)
+                            .equippableUnswappable(EquipmentSlot.HEAD)
+            )
+    );
+
+    public static final RegistryHandle<Item> CREEPSPORE = Services.REGISTRY.registerItem(
+            "creepspore",
             createBlockItemWithCustomItemName(ModBlocks.CREEPSPORE_CROP));
 
     public static final RegistryHandle<Item> BELLOWS = Services.REGISTRY.registerItem(

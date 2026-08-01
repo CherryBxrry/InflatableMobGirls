@@ -34,11 +34,15 @@ public class ModItemTagsProvider extends ItemTagsProvider {
                 .add(ModItems.SOUL_CHOCOLATE.key());
 
         // Vanilla Tags
+        this.tag(ItemTags.NOTE_BLOCK_TOP_INSTRUMENTS)
+                .add(ModItems.CREEPER_GIRL_HEAD.key());
         this.tag(ItemTags.PARROT_POISONOUS_FOOD)
                 .add(ModItems.SOUL_CHOCOLATE.key());
         this.tag(ItemTags.SULFUR_CUBE_ARCHETYPE_SLOW_SLIDING)
                 .add(ModBlocks.CREEPSHROOM_BLOCK.itemKey())
                 .add(ModBlocks.HUGE_CREEPSHROOM_STEM.itemKey());
+        this.tag(ItemTags.SKULLS)
+                .add(ModItems.CREEPER_GIRL_HEAD.key());
         this.tag(ItemTags.VILLAGER_PLANTABLE_SEEDS)
                 .add(ModItems.CREEPSPORE.key());
     }

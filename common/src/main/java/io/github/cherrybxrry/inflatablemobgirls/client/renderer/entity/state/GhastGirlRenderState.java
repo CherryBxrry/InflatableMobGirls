@@ -1,16 +1,11 @@
 package io.github.cherrybxrry.inflatablemobgirls.client.renderer.entity.state;
 
-import io.github.cherrybxrry.inflatablemobgirls.Constants;
 import net.minecraft.client.renderer.entity.state.LivingEntityRenderState;
-import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.AnimationState;
 import net.minecraft.world.item.ItemStack;
 
 public class GhastGirlRenderState extends LivingEntityRenderState {
-    private static final Identifier DEFAULT_TEXTURE = Constants.id("textures/entity/ghast_girl/ghast_girl.png");
-
     public int stage = 0;
-    public Identifier texture = DEFAULT_TEXTURE;
     public ItemStack bodyItem;
     public boolean isRidden;
     public boolean isLeashHolder;

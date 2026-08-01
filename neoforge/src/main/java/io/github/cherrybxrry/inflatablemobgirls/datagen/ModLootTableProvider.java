@@ -1,10 +1,7 @@
 package io.github.cherrybxrry.inflatablemobgirls.datagen;
 
 import io.github.cherrybxrry.inflatablemobgirls.blocks.CreepSporeBlock;
-import io.github.cherrybxrry.inflatablemobgirls.init.ModBlocks;
-import io.github.cherrybxrry.inflatablemobgirls.init.ModEntityTypes;
-import io.github.cherrybxrry.inflatablemobgirls.init.ModItems;
-import io.github.cherrybxrry.inflatablemobgirls.init.ModLootTables;
+import io.github.cherrybxrry.inflatablemobgirls.init.*;
 import io.github.cherrybxrry.inflatablemobgirls.platform.services.NeoForgeRegistryHelper;
 import net.minecraft.advancements.predicates.DamageSourcePredicate;
 import net.minecraft.advancements.predicates.StatePropertiesPredicate;
@@ -12,6 +9,7 @@ import net.minecraft.advancements.predicates.TagPredicate;
 import net.minecraft.advancements.predicates.entity.EntityPredicate;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.BlockLootSubProvider;
@@ -29,11 +27,12 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
-import net.minecraft.world.level.storage.loot.entries.LootItem;
-import net.minecraft.world.level.storage.loot.entries.TagEntry;
+import net.minecraft.world.level.storage.loot.entries.*;
+import net.minecraft.world.level.storage.loot.functions.CopyComponentsFunction;
 import net.minecraft.world.level.storage.loot.functions.EnchantedCountIncreaseFunction;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.level.storage.loot.predicates.*;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
@@ -65,6 +64,7 @@ public class ModLootTableProvider extends LootTableProvider {
 
         @Override
         protected void generate() {
+            add(ModBlocks.CREEPER_GIRL_HEAD.get(), this::createMobSkullDrop);
             dropSelf(ModBlocks.CREEPSHROOM.block().get());
             LootItemCondition.Builder isCreepSporeMaxAge = LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.CREEPSPORE_CROP.get())
                     .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CreepSporeBlock.AGE, CreepSporeBlock.MAX_AGE));
@@ -73,6 +73,21 @@ public class ModLootTableProvider extends LootTableProvider {
             add(ModBlocks.HUGE_CREEPSHROOM_STEM.block().get(), block -> createMushroomBlockDrop(block, ModBlocks.CREEPSHROOM.item().get()));
             dropSelf(ModBlocks.NETHER_GEYSER.block().get());
             dropPottedContents(ModBlocks.POTTED_CREEPSHROOM.get());
+        }
+
+        private LootTable.Builder createMobSkullDrop(Block block) {
+            return LootTable.lootTable()
+                    .withPool(
+                            this.applyExplosionCondition(
+                                    block,
+                                    LootPool.lootPool()
+                                            .setRolls(ConstantValue.exactly(1.0F))
+                                            .add(
+                                                    LootItem.lootTableItem(block)
+                                                            .apply(CopyComponentsFunction.copyComponentsFromBlockEntity(LootContextParams.BLOCK_ENTITY).include(DataComponents.CUSTOM_NAME))
+                                            )
+                            )
+                    );
         }
 
         @Override
@@ -85,6 +100,7 @@ public class ModLootTableProvider extends LootTableProvider {
     }
 
     private static final class ModEntityLootSubProvider extends EntityLootSubProvider {
+
         ModEntityLootSubProvider(HolderLookup.Provider registries) {
             super(FeatureFlags.DEFAULT_FLAGS, registries);
         }
@@ -115,6 +131,10 @@ public class ModLootTableProvider extends LootTableProvider {
                                             )
                             ));
             add(ModEntityTypes.CREEPER_GIRL.get(), ModLootTables.EXPLODE_CREEPER_GIRL, createChanceDrop(ModItems.CREEPSPORE.get(), 0.25F));
+
+            for(ModLootModifiers.Entry entry : ModLootModifiers.CHARGED_CREEPER_ENTRIES) {
+                add(ModEntityTypes.CREEPER_GIRL.get(), entry.lootTable(), LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(entry.item()))));
+            }
 
             // Nether
             add(ModEntityTypes.GHAST_GIRL.get(),

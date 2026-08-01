@@ -1,18 +1,23 @@
 package io.github.cherrybxrry.inflatablemobgirls.platform.services.client;
 
+import com.mojang.serialization.MapCodec;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleProviderRegistry;
+import net.minecraft.client.KeyMapping;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.particle.ParticleProvider;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.blockentity.state.BlockEntityRenderState;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.special.SpecialModelRenderer;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleType;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import org.apache.logging.log4j.util.Lazy;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,9 +26,11 @@ import java.util.function.Supplier;
 public class FabricClientRegistryHelper implements IClientRegistryHelper {
     private final List<BlockEntityRendererEntry<?, ?>> blockEntityRenderers = new ArrayList<>();
     private final List<EntityRendererEntry<?>> entityRenderers = new ArrayList<>();
+    private final List<KeyMappingEntry> keyMappings = new ArrayList<>();
     private final List<ModelLayerEntry> modelLayers = new ArrayList<>();
     private final List<ParticleProviderEntry<?>> particleProviders = new ArrayList<>();
     private final List<SpriteParticleProviderEntry<?>> spriteParticleProviders = new ArrayList<>();
+    private final List<SpecialModelRendererEntry> specialModelRenderers = new ArrayList<>();
 
     @Override
     public <T extends BlockEntity, S extends BlockEntityRenderState> void registerBlockEntityRenderer(BlockEntityType<T> blockEntityType, BlockEntityRendererProvider<T, S> provider) {
@@ -33,6 +40,12 @@ public class FabricClientRegistryHelper implements IClientRegistryHelper {
     @Override
     public <T extends Entity> void registerEntityRenderer(EntityType<T> entityType, EntityRendererProvider<T> provider) {
         this.entityRenderers.add(new EntityRendererEntry<>(entityType, provider));
+    }
+
+    @Override
+    public Lazy<KeyMapping> registerKeyMapping(KeyMapping keyMapping) {
+        this.keyMappings.add(new KeyMappingEntry(keyMapping));
+        return Lazy.value(keyMapping);
     }
 
     @Override
@@ -48,6 +61,11 @@ public class FabricClientRegistryHelper implements IClientRegistryHelper {
     @Override
     public <T extends ParticleOptions> void registerParticleProvider(ParticleType<T> particleType, SpriteParticleProvider<T> provider) {
         this.spriteParticleProviders.add(new SpriteParticleProviderEntry<>(particleType, provider));
+    }
+
+    @Override
+    public void registerSpecialModelRenderer(Identifier location, MapCodec<? extends SpecialModelRenderer.Unbaked<?>> source) {
+        this.specialModelRenderers.add(new SpecialModelRendererEntry(location, source));
     }
 
     public IClientRegistryHelper.SpriteParticleProviderRegistrar createRegistrarForEvent(ParticleProviderRegistry registry) {
@@ -74,6 +92,13 @@ public class FabricClientRegistryHelper implements IClientRegistryHelper {
     }
 
     @Override
+    public void applyKeyMappingRegistrations(KeyMappingRegistrar registrar) {
+        for (KeyMappingEntry entry : this.keyMappings) {
+            entry.register(registrar);
+        }
+    }
+
+    @Override
     public void applyModelLayerRegistrations(ModelLayerRegistrar registrar) {
         for (ModelLayerEntry entry : this.modelLayers) {
             entry.register(registrar);
@@ -94,6 +119,13 @@ public class FabricClientRegistryHelper implements IClientRegistryHelper {
         }
     }
 
+    @Override
+    public void applySpecialModelRendererRegistrations(SpecialModelRendererRegistrar registrar) {
+        for (SpecialModelRendererEntry entry : this.specialModelRenderers) {
+            entry.register(registrar);
+        }
+    }
+
     private record BlockEntityRendererEntry<T extends BlockEntity, S extends BlockEntityRenderState>(BlockEntityType<T> blockEntityType, BlockEntityRendererProvider<T, S> provider) {
         private void register(BlockEntityRendererRegistrar registrar) {
             registrar.register(this.blockEntityType, this.provider);
@@ -103,6 +135,12 @@ public class FabricClientRegistryHelper implements IClientRegistryHelper {
     private record EntityRendererEntry<T extends Entity>(EntityType<T> entityType, EntityRendererProvider<T> provider) {
         private void register(EntityRendererRegistrar registrar) {
             registrar.register(this.entityType, this.provider);
+        }
+    }
+
+    private record KeyMappingEntry(KeyMapping keyMapping) {
+        private void register(KeyMappingRegistrar registrar) {
+            registrar.register(this.keyMapping);
         }
     }
 
@@ -121,6 +159,12 @@ public class FabricClientRegistryHelper implements IClientRegistryHelper {
     private record SpriteParticleProviderEntry<T extends ParticleOptions>(ParticleType<T> type, SpriteParticleProvider<T> provider) {
         private void register(SpriteParticleProviderRegistrar registrar) {
             registrar.register(this.type, this.provider);
+        }
+    }
+
+    private record SpecialModelRendererEntry(Identifier location, MapCodec<? extends SpecialModelRenderer.Unbaked<?>> source) {
+        private void register(SpecialModelRendererRegistrar registrar) {
+            registrar.register(this.location, this.source);
         }
     }
 }

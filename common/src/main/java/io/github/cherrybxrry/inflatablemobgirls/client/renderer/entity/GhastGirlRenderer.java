@@ -16,6 +16,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 import org.jspecify.annotations.NonNull;
 
 public class GhastGirlRenderer extends MobRenderer<GhastGirl, GhastGirlRenderState, GhastGirlModel> {
+    private static final Identifier GHAST_GIRL = Constants.id("textures/entity/ghast_girl/ghast_girl.png");
     private static final Identifier GHAST_GIRL_ROPES = Constants.id("textures/entity/ghast_girl/ghast_girl_ropes.png");
 
     public GhastGirlRenderer(EntityRendererProvider.Context context) {
@@ -26,7 +27,7 @@ public class GhastGirlRenderer extends MobRenderer<GhastGirl, GhastGirlRenderSta
 
     @Override
     public @NonNull Identifier getTextureLocation(@NonNull GhastGirlRenderState state) {
-        return state.texture;
+        return GHAST_GIRL;
     }
 
     @Override
@@ -76,6 +77,5 @@ public class GhastGirlRenderer extends MobRenderer<GhastGirl, GhastGirlRenderSta
         state.bodyItem = entity.getItemBySlot(EquipmentSlot.BODY).copy();
         state.isRidden = entity.isVehicle();
         state.isLeashHolder = entity.isLeashHolder();
-        state.texture = entity.getTexture();
     }
 }
