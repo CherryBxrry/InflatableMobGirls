@@ -7,7 +7,7 @@ import java.util.ServiceLoader;
 
 public class Services {
     public static final IAttributeRegistryHelper ATTRIBUTES = load(IAttributeRegistryHelper.class);
-    public static final IDatapackRegistryHelper DATAPACK_REGISTRIES = load(IDatapackRegistryHelper.class);
+    public static final IDatapackRegistryHelper DATAPACKS = load(IDatapackRegistryHelper.class);
     public static final IPlatformHelper PLATFORM = load(IPlatformHelper.class);
     public static final IRegistryHelper REGISTRY = load(IRegistryHelper.class);
     public static final ISpawnPlacementRegistryHelper SPAWN_PLACEMENTS = load(ISpawnPlacementRegistryHelper.class);
