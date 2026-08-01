@@ -31,8 +31,6 @@
 - **Fully custom models and animations** for each mob girl.
 - **Unique inflation mechanics** per mob girl (different growth rates, limits, and interactions).
 - **Custom inflation sounds** for each mob girl.
-- **Configurable behaviour** via a TOML config file.
-- **Source-first repo**: build from source using Gradle.
 
 ---
 
