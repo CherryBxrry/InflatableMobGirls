@@ -9,7 +9,7 @@ public class ModDatapackRegistries {
     }
 
     public static void load() {
-        Services.DATAPACK_REGISTRIES.registerSynced(
+        Services.DATAPACKS.registerDataPack(
                 ModRegistries.CREEPER_GIRL_VARIANT,
                 CreeperGirlVariant.DIRECT_CODEC,
                 CreeperGirlVariant.NETWORK_CODEC

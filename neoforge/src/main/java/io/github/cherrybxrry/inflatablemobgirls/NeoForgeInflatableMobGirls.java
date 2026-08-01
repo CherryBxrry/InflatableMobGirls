@@ -5,7 +5,6 @@ import io.github.cherrybxrry.inflatablemobgirls.platform.Services;
 import io.github.cherrybxrry.inflatablemobgirls.platform.ServicesClient;
 import io.github.cherrybxrry.inflatablemobgirls.platform.services.IAttributeRegistryHelper;
 import io.github.cherrybxrry.inflatablemobgirls.platform.services.ISpawnPlacementRegistryHelper;
-import io.github.cherrybxrry.inflatablemobgirls.platform.services.NeoForgeDatapackHelper;
 import io.github.cherrybxrry.inflatablemobgirls.platform.services.NeoForgeRegistryHelper;
 import io.github.cherrybxrry.inflatablemobgirls.platform.services.client.NeoForgeClientNetworkingHelper;
 import net.minecraft.world.entity.*;
@@ -43,7 +42,8 @@ public class NeoForgeInflatableMobGirls {
     }
 
     private static void onDatapackRegistry(DataPackRegistryEvent.NewRegistry event) {
-        NeoForgeDatapackHelper.registerAll(event);
+        Services.DATAPACKS.applyDatapackRegistrations(event::dataPackRegistry);
+        Services.DATAPACKS.applySyncedDatapackRegistrations(event::dataPackRegistry);
     }
 
     private static void onRegisterSpawnPlacements(RegisterSpawnPlacementsEvent event) {
