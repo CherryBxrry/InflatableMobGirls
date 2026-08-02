@@ -1,16 +1,36 @@
-MIT License
+Copyright (c) 2026 CherryBxrry
 
-Copyright (c) YEAR YourName
+Permission is granted to use, install, and modify this software for personal,
+educational, and non-commercial purposes.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+You may:
+- Use the mod in Minecraft.
+- Modify the source code for personal use.
+- Contribute changes through pull requests if the project is publicly hosted.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+You may NOT:
+- Sell this mod or any modified version of it.
+- Charge money for downloading or accessing this mod.
+- Include this mod in any paid product or service.
+- Sell source code, compiled builds, or assets derived from this project.
+- Reupload compiled versions of this mod while the original project is actively
+  maintained by the copyright holder.
+- Remove or alter copyright notices.
+
+Reuploads
+
+Reuploading compiled versions of this mod is only permitted if one of the
+following conditions is met:
+
+1. The copyright holder has publicly transferred maintenance of the project to
+   another person or organization; or
+
+2. The copyright holder has publicly declared the project abandoned or has not
+   released updates or responded to reasonable maintenance requests for at least
+   12 consecutive months.
+
+Forks created for continued maintenance under these conditions must clearly
+credit the original author and state that they are unofficial continuations.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
