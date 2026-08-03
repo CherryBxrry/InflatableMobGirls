@@ -57,6 +57,11 @@ public class FabricRegistryHelper implements IRegistryHelper {
             }
 
             @Override
+            public ResourceKey<Block> key() {
+                return key;
+            }
+
+            @Override
             public T get() {
                 return registered;
             }
@@ -65,6 +70,7 @@ public class FabricRegistryHelper implements IRegistryHelper {
 
     @Override
     public final <T extends BlockEntity> RegistryHandle<BlockEntityType<T>> registerBlockEntity(String name, BlockEntityType.BlockEntitySupplier<? extends T> factory, Set<Supplier<? extends Block>> validBlocks) {
+        ResourceKey<BlockEntityType<?>> key = IRegistryHelper.blockEntityKey(name);
         Identifier id = Constants.id(name);
 
         if (validBlocks.isEmpty()) {
@@ -81,6 +87,11 @@ public class FabricRegistryHelper implements IRegistryHelper {
             }
 
             @Override
+            public ResourceKey<BlockEntityType<?>> key() {
+                return key;
+            }
+
+            @Override
             public BlockEntityType<T> get() {
                 return registered;
             }
@@ -94,6 +105,7 @@ public class FabricRegistryHelper implements IRegistryHelper {
 
     @Override
     public RegistryHandle<CreativeModeTab> registerCreativeTab(String name, Supplier<ItemStack> icon, Consumer<CreativeTabOutput> entries) {
+        ResourceKey<CreativeModeTab> key = IRegistryHelper.creativeTabKey(name);
         Identifier id = Constants.id(name);
         CreativeModeTab registered = Registry.register(
                 BuiltInRegistries.CREATIVE_MODE_TAB,
@@ -112,6 +124,11 @@ public class FabricRegistryHelper implements IRegistryHelper {
             }
 
             @Override
+            public ResourceKey<CreativeModeTab> key() {
+                return key;
+            }
+
+            @Override
             public CreativeModeTab get() {
                 return registered;
             }
@@ -120,6 +137,7 @@ public class FabricRegistryHelper implements IRegistryHelper {
 
     @Override
     public <T extends ConsumeEffect> RegistryHandle<ConsumeEffect.Type<T>> registerConsumeEffect(String name, MapCodec<T> codec, StreamCodec<RegistryFriendlyByteBuf, T> streamCodec) {
+        ResourceKey<ConsumeEffect.Type<?>> key = IRegistryHelper.consumeEffectKey(name);
         Identifier id = Constants.id(name);
         ConsumeEffect.Type<T> registered = Registry.register(
                 BuiltInRegistries.CONSUME_EFFECT_TYPE,
@@ -134,6 +152,11 @@ public class FabricRegistryHelper implements IRegistryHelper {
             }
 
             @Override
+            public ResourceKey<ConsumeEffect.Type<?>> key() {
+                return key;
+            }
+
+            @Override
             public ConsumeEffect.Type<T> get() {
                 return registered;
             }
@@ -142,6 +165,7 @@ public class FabricRegistryHelper implements IRegistryHelper {
 
     @Override
     public <T> RegistryHandle<DataComponentType<T>> registerDataComponentType(String name, Function<DataComponentType.Builder<T>, DataComponentType.Builder<T>> builder) {
+        ResourceKey<DataComponentType<?>> key = IRegistryHelper.dataComponentKey(name);
         Identifier id = Constants.id(name);
         DataComponentType<T> registered = Registry.register(
                 BuiltInRegistries.DATA_COMPONENT_TYPE,
@@ -153,6 +177,11 @@ public class FabricRegistryHelper implements IRegistryHelper {
             @Override
             public Identifier id() {
                 return id;
+            }
+
+            @Override
+            public ResourceKey<?> key() {
+                return key;
             }
 
             @Override
@@ -179,6 +208,11 @@ public class FabricRegistryHelper implements IRegistryHelper {
             }
 
             @Override
+            public ResourceKey<Item> key() {
+                return key;
+            }
+
+            @Override
             public T get() {
                 return registered;
             }
@@ -194,6 +228,11 @@ public class FabricRegistryHelper implements IRegistryHelper {
             @Override
             public Identifier id() {
                 return id;
+            }
+
+            @Override
+            public ResourceKey<?> key() {
+                return null;
             }
 
             @Override
@@ -213,6 +252,11 @@ public class FabricRegistryHelper implements IRegistryHelper {
             @Override
             public Identifier id() {
                 return id;
+            }
+
+            @Override
+            public ResourceKey<?> key() {
+                return null;
             }
 
             @Override
@@ -236,6 +280,11 @@ public class FabricRegistryHelper implements IRegistryHelper {
             @Override
             public Identifier id() {
                 return id;
+            }
+
+            @Override
+            public ResourceKey<EntityType<?>> key() {
+                return key;
             }
 
             @Override
@@ -263,6 +312,11 @@ public class FabricRegistryHelper implements IRegistryHelper {
             }
 
             @Override
+            public ResourceKey<Feature<?>> key() {
+                return key;
+            }
+
+            @Override
             public F get() {
                 return registered;
             }
@@ -286,6 +340,11 @@ public class FabricRegistryHelper implements IRegistryHelper {
             }
 
             @Override
+            public ResourceKey<ParticleType<?>> key() {
+                return key;
+            }
+
+            @Override
             public SimpleParticleType get() {
                 return registered;
             }
@@ -294,7 +353,7 @@ public class FabricRegistryHelper implements IRegistryHelper {
 
     @Override
     public RegistryHandle<SoundEvent> registerSoundEvent(String name) {
-        ResourceKey<SoundEvent> key = IRegistryHelper.soundKey(name);
+        ResourceKey<SoundEvent> key = IRegistryHelper.soundEventKey(name);
         Identifier id = key.identifier();
 
         SoundEvent registered = Registry.register(
@@ -307,6 +366,11 @@ public class FabricRegistryHelper implements IRegistryHelper {
             @Override
             public Identifier id() {
                 return id;
+            }
+
+            @Override
+            public ResourceKey<SoundEvent> key() {
+                return key;
             }
 
             @Override
