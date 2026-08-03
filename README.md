@@ -57,5 +57,5 @@
 ## Credits
 
 - [**bARTek**](https://x.com/Irritator_Fan): for the mod concept, Ghast Girl and Creeper Girl models.
-- **CherryBxrry**: for design, code, and maintenance.
+- [**CherryBxrry**](https://x.com/CherryMcBerry): for design, code, and maintenance.
 
