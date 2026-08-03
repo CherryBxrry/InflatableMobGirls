@@ -7,6 +7,7 @@ import net.minecraft.advancements.predicates.DamageSourcePredicate;
 import net.minecraft.advancements.predicates.StatePropertiesPredicate;
 import net.minecraft.advancements.predicates.TagPredicate;
 import net.minecraft.advancements.predicates.entity.EntityPredicate;
+import net.minecraft.advancements.predicates.entity.EntityTypePredicate;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.component.DataComponents;
@@ -15,15 +16,19 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.EntityLootSubProvider;
 import net.minecraft.data.loot.LootTableProvider;
+import net.minecraft.data.loot.LootTableSubProvider;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.flag.FeatureFlags;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
@@ -39,9 +44,11 @@ import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import org.jspecify.annotations.NonNull;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
+import java.util.function.BiConsumer;
 import java.util.stream.Stream;
 
 public class ModLootTableProvider extends LootTableProvider {
@@ -51,7 +58,8 @@ public class ModLootTableProvider extends LootTableProvider {
                 Set.of(),
                 List.of(
                         new SubProviderEntry(ModBlockLootSubProvider::new, LootContextParamSets.BLOCK),
-                        new SubProviderEntry(ModEntityLootSubProvider::new, LootContextParamSets.ENTITY)
+                        new SubProviderEntry(ModEntityLootSubProvider::new, LootContextParamSets.ENTITY),
+                        new SubProviderEntry(CreeperGirlExplosionLoot::new, LootContextParamSets.ENTITY)
                 ),
                 registries
         );
@@ -100,7 +108,6 @@ public class ModLootTableProvider extends LootTableProvider {
     }
 
     private static final class ModEntityLootSubProvider extends EntityLootSubProvider {
-
         ModEntityLootSubProvider(HolderLookup.Provider registries) {
             super(FeatureFlags.DEFAULT_FLAGS, registries);
         }
@@ -130,11 +137,6 @@ public class ModLootTableProvider extends LootTableProvider {
                                                     )
                                             )
                             ));
-            add(ModEntityTypes.CREEPER_GIRL.get(), ModLootTables.EXPLODE_CREEPER_GIRL, createChanceDrop(ModItems.CREEPSPORE.get(), 0.25F));
-
-            for(ModLootModifiers.Entry entry : ModLootModifiers.CHARGED_CREEPER_ENTRIES) {
-                add(ModEntityTypes.CREEPER_GIRL.get(), entry.lootTable(), LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(entry.item()))));
-            }
 
             // Nether
             add(ModEntityTypes.GHAST_GIRL.get(),
@@ -174,6 +176,51 @@ public class ModLootTableProvider extends LootTableProvider {
             );
         }
 
+        @Override
+        protected @NonNull Stream<EntityType<?>> getKnownEntityTypes() {
+            return NeoForgeRegistryHelper.ENTITIES.getEntries()
+                    .stream()
+                    .map(DeferredHolder::value);
+        }
+    }
+
+    private record CreeperGirlExplosionLoot(HolderLookup.Provider registries) implements LootTableSubProvider {
+        private static final List<Entry> ENTRIES = List.of(
+                new Entry(
+                        ModLootTables.CHARGED_CREEPER_GIRL_CREEPER_GIRL,
+                        ModEntityTypes.CREEPER_GIRL.get(),
+                        ModItems.CREEPER_GIRL_HEAD.get()
+                )
+        );
+
+        @Override
+        public void generate(@NonNull BiConsumer<ResourceKey<LootTable>, LootTable.Builder> output) {
+            HolderGetter<EntityType<?>> entityTypes = this.registries.lookupOrThrow(Registries.ENTITY_TYPE);
+            List<LootPoolEntryContainer.Builder<?>> alternatives = new ArrayList<>(ENTRIES.size());
+
+            output.accept(ModLootTables.EXPLODE_CREEPER_GIRL, createChanceDrop(ModItems.CREEPSPORE.get(), 0.25F));
+            for (Entry entry : ENTRIES) {
+                output.accept(
+                        entry.lootTable,
+                        LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(entry.item)))
+                );
+                LootItemCondition.Builder predicate = LootItemEntityPropertyCondition.hasProperties(
+                        LootContext.EntityTarget.THIS, EntityPredicate.Builder.entity().entityType(EntityTypePredicate.of(entityTypes, entry.entityType))
+                );
+                alternatives.add(NestedLootTable.lootTableReference(entry.lootTable).when(predicate));
+            }
+
+            output.accept(
+                    ModLootTables.CHARGED_CREEPER_GIRL,
+                    LootTable.lootTable()
+                            .withPool(
+                                    LootPool.lootPool()
+                                            .setRolls(ConstantValue.exactly(1.0F))
+                                            .add(AlternativesEntry.alternatives(alternatives.toArray(LootPoolEntryContainer.Builder[]::new)))
+                            )
+            );
+        }
+
         private static LootTable.Builder createChanceDrop(ItemLike item, float chance) {
             return LootTable.lootTable()
                     .withPool(
@@ -190,11 +237,6 @@ public class ModLootTableProvider extends LootTableProvider {
             return createChanceDrop(block.asItem(), chance);
         }
 
-        @Override
-        protected @NonNull Stream<EntityType<?>> getKnownEntityTypes() {
-            return NeoForgeRegistryHelper.ENTITIES.getEntries()
-                    .stream()
-                    .map(DeferredHolder::value);
-        }
+        private record Entry(ResourceKey<LootTable> lootTable, EntityType<?> entityType, Item item) { }
     }
 }
