@@ -530,11 +530,11 @@ public class CreeperGirl extends InflatableMobGirl {
     // ==============================
 
     public boolean shouldExplode() {
-        return this.getInflateTime() + 1L >= this.getInflateLength() && this.getStage() == 3;
+        return this.getInflateTime() + 1L > this.getInflateLength() && this.getStage() == 3 && !this.isRegenerating();
     }
 
     public boolean shouldStopRegenerating() {
-        return this.getInflateTime() + 1L >= this.getInflateLength() && this.getStage() == 0 && this.isRegenerating();
+        return this.getInflateTime() + 1L > this.getInflateLength() && this.getStage() == 0 && this.isRegenerating();
     }
 
     public void setCharged(boolean charged) {
@@ -578,17 +578,13 @@ public class CreeperGirl extends InflatableMobGirl {
     @Override
     public void tick() {
         if (this.isAlive() && !this.level().isClientSide()) {
-            if (this.isInflating() && this.shouldExplode()) {
+            if (this.shouldExplode()) {
                 this.setOrderedToSit(true);
                 this.jumping = false;
                 this.navigation.stop();
                 this.setTarget(null);
                 this.setRegenerating(true);
                 this.explodeCreeperGirl();
-            }
-
-            if (this.isInflating() && this.shouldStopRegenerating()) {
-                this.setRegenerating(false);
             }
 
             if (!this.isInflating()) {
@@ -608,6 +604,8 @@ public class CreeperGirl extends InflatableMobGirl {
                         this.playSound(this.isBaby() ? ModSounds.CREEPER_GIRL_BABY_DEFLATE.get() : ModSounds.CREEPER_GIRL_DEFLATE.get());
                     }
                 } else {
+                    if (this.shouldStopRegenerating()) this.setRegenerating(false);
+
                     if (health > deflateThreshold) {
                         this.setStage(stage - 1);
                         this.inflateForLength(stage == 3 ? 30 : 25);
@@ -777,7 +775,7 @@ public class CreeperGirl extends InflatableMobGirl {
     @Override
     public boolean killedEntity(@NonNull ServerLevel level, @NonNull LivingEntity entity, @NonNull DamageSource source) {
         if (this.shouldDropLoot(level) && this.isCharged() && !this.droppedSkulls) {
-            entity.dropFromLootTable(level, source, false, BuiltInLootTables.CHARGED_CREEPER, itemStack -> {
+            entity.dropFromLootTable(level, source, false, ModLootTables.CHARGED_CREEPER_GIRL, itemStack -> {
                 entity.spawnAtLocation(level, itemStack);
                 this.droppedSkulls = true;
             });
