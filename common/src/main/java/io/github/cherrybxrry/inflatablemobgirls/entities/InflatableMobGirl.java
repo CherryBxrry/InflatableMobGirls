@@ -374,11 +374,11 @@ public abstract class InflatableMobGirl extends TamableAnimal implements Neutral
     public boolean hurtServer(@NonNull ServerLevel level, @NonNull DamageSource source, float damage) {
         if (this.isInvulnerableTo(level, source)) return false;
 
-        if (source.getEntity() instanceof TamableAnimal tamableAttacker
-                && tamableAttacker.getOwner() == this.getOwner()) return false;
-
-        if (source.getDirectEntity() instanceof TamableAnimal tamableDirect
-                && tamableDirect.getOwner() == this.getOwner()) return false;
+        if (this.isTame() && ((source.getEntity() instanceof TamableAnimal tamableAttacker
+                && tamableAttacker.getOwner() == this.getOwner())
+                || (source.getDirectEntity() instanceof TamableAnimal tamableDirect
+                && tamableDirect.getOwner() == this.getOwner()))
+        ) return false;
 
         this.setOrderedToSit(false);
         return super.hurtServer(level, source, damage);
