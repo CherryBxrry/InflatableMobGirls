@@ -24,26 +24,26 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         this.tag(ModItemTags.CREEPER_GIRL_FOOD)
                 .add(ItemIds.BONE_MEAL);
         this.tag(ModItemTags.GHAST_GIRL_FOOD)
-                .add(ModItems.SOUL_CHOCOLATE.key());
+                .add(ModItems.SOUL_CHOCOLATE.typedKey());
         this.tag(ModItemTags.INFLATES_CREEPER_GIRL);
         this.tag(ModItemTags.INFLATES_GHAST_GIRL)
-                .add(ModItems.BELLOWS.key());
+                .add(ModItems.BELLOWS.typedKey());
         this.tag(ModItemTags.TAMES_CREEPER_GIRL)
                 .add(ModBlocks.CREEPSHROOM.itemKey());
         this.tag(ModItemTags.TAMES_GHAST_GIRL)
-                .add(ModItems.SOUL_CHOCOLATE.key());
+                .add(ModItems.SOUL_CHOCOLATE.typedKey());
 
         // Vanilla Tags
         this.tag(ItemTags.NOTE_BLOCK_TOP_INSTRUMENTS)
-                .add(ModItems.CREEPER_GIRL_HEAD.key());
+                .add(ModItems.CREEPER_GIRL_HEAD.typedKey());
         this.tag(ItemTags.PARROT_POISONOUS_FOOD)
-                .add(ModItems.SOUL_CHOCOLATE.key());
+                .add(ModItems.SOUL_CHOCOLATE.typedKey());
         this.tag(ItemTags.SULFUR_CUBE_ARCHETYPE_SLOW_SLIDING)
                 .add(ModBlocks.CREEPSHROOM_BLOCK.itemKey())
                 .add(ModBlocks.HUGE_CREEPSHROOM_STEM.itemKey());
         this.tag(ItemTags.SKULLS)
-                .add(ModItems.CREEPER_GIRL_HEAD.key());
+                .add(ModItems.CREEPER_GIRL_HEAD.typedKey());
         this.tag(ItemTags.VILLAGER_PLANTABLE_SEEDS)
-                .add(ModItems.CREEPSPORE.key());
+                .add(ModItems.CREEPSPORE.typedKey());
     }
 }

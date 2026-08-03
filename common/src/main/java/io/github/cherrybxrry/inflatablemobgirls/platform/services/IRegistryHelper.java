@@ -56,9 +56,9 @@ public interface IRegistryHelper {
         return new BlockWithItemRegistryHandle<>(blockHandle, itemHandle);
     }
 
-    RegistryHandle<CreativeModeTab> registerCreativeTab(String name, Supplier<ItemStack> icon, Consumer<CreativeTabOutput> entries);
-
     <T extends ConsumeEffect> RegistryHandle<ConsumeEffect.Type<T>> registerConsumeEffect(String name, MapCodec<T> codec, StreamCodec<RegistryFriendlyByteBuf, T> streamCodec);
+
+    RegistryHandle<CreativeModeTab> registerCreativeTab(String name, Supplier<ItemStack> icon, Consumer<CreativeTabOutput> entries);
 
     <T> RegistryHandle<DataComponentType<T>> registerDataComponentType(String name, Function<DataComponentType.Builder<T>, DataComponentType.Builder<T>> builder);
 
@@ -84,11 +84,23 @@ public interface IRegistryHelper {
         return ResourceKey.create(Registries.BLOCK_ENTITY_TYPE, Constants.id(name));
     }
 
+    static ResourceKey<ConsumeEffect.Type<?>> consumeEffectKey(String name) {
+        return ResourceKey.create(Registries.CONSUME_EFFECT_TYPE, Constants.id(name));
+    }
+
+    static ResourceKey<CreativeModeTab> creativeTabKey(String name) {
+        return ResourceKey.create(Registries.CREATIVE_MODE_TAB, Constants.id(name));
+    }
+
+    static ResourceKey<DataComponentType<?>> dataComponentKey(String name) {
+        return ResourceKey.create(Registries.DATA_COMPONENT_TYPE, Constants.id(name));
+    }
+
     static ResourceKey<Item> itemKey(String name) {
         return ResourceKey.create(Registries.ITEM, Constants.id(name));
     }
 
-    static <T extends Entity> ResourceKey<EntityType<?>> entityTypeKey(String name) {
+    static ResourceKey<EntityType<?>> entityTypeKey(String name) {
         return ResourceKey.create(Registries.ENTITY_TYPE, Constants.id(name));
     }
 
@@ -100,7 +112,7 @@ public interface IRegistryHelper {
         return ResourceKey.create(Registries.PARTICLE_TYPE, Constants.id(name));
     }
 
-    static ResourceKey<SoundEvent> soundKey(String name) {
+    static ResourceKey<SoundEvent> soundEventKey(String name) {
         return ResourceKey.create(Registries.SOUND_EVENT, Constants.id(name));
     }
 
