@@ -1,6 +1,6 @@
 # Inflatable Mob Girls
 
-**Disclaimer:** This project is an unofficial, community-created mod for Minecraft. It is not affiliated with, endorsed by, or sponsored by Mojang Studios or Microsoft. This repository contains only the **source code** and assets that the author has the right to distribute. It does **not** include any Minecraft game files or other proprietary content from Mojang/Microsoft. You must own a legitimate copy of Minecraft to use this mod.
+**Disclaimer:** This project contains mature content and is an unofficial, community-created mod for Minecraft. It is not affiliated with, endorsed by, or sponsored by Mojang Studios or Microsoft. This repository contains only the **source code** and assets that the author has the right to distribute. It does **not** include any Minecraft game files or other proprietary content from Mojang/Microsoft. You must own a legitimate copy of Minecraft to use this mod.
 
 ---
 
