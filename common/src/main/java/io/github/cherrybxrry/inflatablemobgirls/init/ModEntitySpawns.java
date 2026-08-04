@@ -26,10 +26,10 @@ public final class ModEntitySpawns {
         );
     }
 
-    public static final SpawnSettings CREEPER_GIRL = new SpawnSettings(10, 1, 1);
-    public static final SpawnSettings GHAST_GIRL_BASALT_DELTAS = new SpawnSettings(15, 1, 1);
-    public static final SpawnSettings GHAST_GIRL_NETHER_WASTES = new SpawnSettings(10, 1, 1);
-    public static final SpawnSettings GHAST_GIRL_SOUL_SAND_VALLEY = new SpawnSettings(10, 1, 1);
+    public static final SpawnSettings CREEPER_GIRL = new SpawnSettings(5, 1, 1);
+    public static final SpawnSettings GHAST_GIRL_BASALT_DELTAS = new SpawnSettings(10, 1, 1);
+    public static final SpawnSettings GHAST_GIRL_NETHER_WASTES = new SpawnSettings(15, 1, 1);
+    public static final SpawnSettings GHAST_GIRL_SOUL_SAND_VALLEY = new SpawnSettings(15, 1, 1);
 
     public record SpawnSettings(int weight, int minGroupSize, int maxGroupSize) {
 
