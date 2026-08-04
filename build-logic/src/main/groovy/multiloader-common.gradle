@@ -48,6 +48,7 @@ processResources {
             'license'                      : license,
             'description'                  : project.description,
             'website'                      : website,
+            'issue_tracker'                : issue_tracker,
             'neoforge_version'             : neoforge_version,
             'neoforge_loader_version_range': neoforge_loader_version_range,
             'credits'                      : credits,

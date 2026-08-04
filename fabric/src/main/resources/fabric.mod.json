@@ -5,11 +5,18 @@
     "name": "${mod_name}",
     "description": "${description}",
     "authors": [
-        "${mod_author}"
+        "${mod_author}",
+        {
+            "name": "bARTek",
+            "contact": {
+                "homepage": "https://x.com/Irritator_Fan"
+            }
+        }
     ],
     "contact": {
         "homepage": "https://discord.gg/vgu6eyWme",
-        "sources": "${website}"
+        "sources": "${website}",
+        "issues": "${issue_tracker}"
     },
     "license": "${license}",
     "icon": "${mod_id}.png",
