@@ -20,6 +20,7 @@ public final class ModDataGen {
         event.createProvider(ModModelProvider::new);
         event.createProvider(ModParticleDescriptionProvider::new);
         event.createProvider(ModRecipeProvider.Runner::new);
+        event.createProvider(ModSoundDefinitionsProvider::new);
         event.createProvider(ModWorldGenProvider::new);
     }
 }

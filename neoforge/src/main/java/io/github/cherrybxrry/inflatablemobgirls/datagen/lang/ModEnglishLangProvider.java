@@ -72,23 +72,23 @@ public class ModEnglishLangProvider extends LanguageProvider {
         add(Component.translatable("key.inflatablemobgirls.ranged_attack"), "Ridden Ranged Attack");
 
         // Sounds
+        add(Component.translatable("sounds.inflatablemobgirls.creeper_girl_baby_belly_ambience"), "Creeper Girl's belly gurgles");
+        add(Component.translatable("sounds.inflatablemobgirls.creeper_girl_baby_inflate"), "Creeper Girl inflates");
+        add(Component.translatable("sounds.inflatablemobgirls.creeper_girl_baby_deflate"), "Creeper Girl deflates");
+        add(Component.translatable("sounds.inflatablemobgirls.creeper_girl_baby_popping"), "Creeper Girl is Popping");
+        add(Component.translatable("sounds.inflatablemobgirls.creeper_girl_belly_ambience1"), "Creeper Girl's belly gurgles quietly");
+        add(Component.translatable("sounds.inflatablemobgirls.creeper_girl_belly_ambience2"), "Creeper Girl's belly gurgles unhappily");
         add(Component.translatable("sounds.inflatablemobgirls.creeper_girl_inflate"), "Creeper Girl inflates");
         add(Component.translatable("sounds.inflatablemobgirls.creeper_girl_deflate"), "Creeper Girl deflates");
         add(Component.translatable("sounds.inflatablemobgirls.creeper_girl_popping"), "Creeper Girl is popping");
         add(Component.translatable("sounds.inflatablemobgirls.creeper_girl_popping_charged"), "Creeper Girl is popping violently");
-        add(Component.translatable("sounds.inflatablemobgirls.creeper_girl_belly_ambience1"), "Creeper Girl's belly gurgles quietly");
-        add(Component.translatable("sounds.inflatablemobgirls.creeper_girl_belly_ambience2"), "Creeper Girl's belly gurgles unhappily");
-        add(Component.translatable("sounds.inflatablemobgirls.creeper_girl_baby_inflate"), "Creeper Girl inflates");
-        add(Component.translatable("sounds.inflatablemobgirls.creeper_girl_baby_deflate"), "Creeper Girl deflates");
-        add(Component.translatable("sounds.inflatablemobgirls.creeper_girl_baby_popping"), "Creeper Girl is Popping");
-        add(Component.translatable("sounds.inflatablemobgirls.creeper_girl_baby_belly_ambience"), "Creeper Girl's belly gurgles quietly");
+        add(Component.translatable("sounds.inflatablemobgirls.ghast_girl_belly_ambience"), "Ghast Girl's belly gurgles quietly");
         add(Component.translatable("sounds.inflatablemobgirls.ghast_girl_inflate_pump1"), "Ghast Girl's belly swells");
         add(Component.translatable("sounds.inflatablemobgirls.ghast_girl_inflate_pump2"), "Ghast Girl's belly swells larger");
         add(Component.translatable("sounds.inflatablemobgirls.ghast_girl_inflate_pump3"), "Ghast Girl's belly swells to max capacity");
         add(Component.translatable("sounds.inflatablemobgirls.ghast_girl_inflate_vent1"), "Ghast Girl's belly gently swells");
         add(Component.translatable("sounds.inflatablemobgirls.ghast_girl_inflate_vent2"), "Ghast Girl's belly gently swells larger");
         add(Component.translatable("sounds.inflatablemobgirls.ghast_girl_inflate_vent3"), "Ghast Girl's belly gently swells to max capacity");
-        add(Component.translatable("sounds.inflatablemobgirls.ghast_girl_belly_ambience"), "Ghast Girl's belly gurgles quietly");
     }
 
     private void add(Component component, String value) {
