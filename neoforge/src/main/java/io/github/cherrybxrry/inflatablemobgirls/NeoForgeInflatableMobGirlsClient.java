@@ -1,17 +1,25 @@
 package io.github.cherrybxrry.inflatablemobgirls;
 
 import io.github.cherrybxrry.inflatablemobgirls.events.client.ModClientTickEvent;
+import io.github.cherrybxrry.inflatablemobgirls.platform.Services;
 import io.github.cherrybxrry.inflatablemobgirls.platform.ServicesClient;
+import io.github.cherrybxrry.inflatablemobgirls.platform.services.NeoForgeServerNetworkingHelper;
 import io.github.cherrybxrry.inflatablemobgirls.platform.services.client.NeoForgeClientRegistryHelper;
 import net.minecraft.client.Minecraft;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.*;
+import net.neoforged.neoforge.client.network.event.RegisterClientPayloadHandlersEvent;
 
 @EventBusSubscriber(modid = Constants.MOD_ID, value = Dist.CLIENT)
 public final class NeoForgeInflatableMobGirlsClient {
     private NeoForgeInflatableMobGirlsClient() {
+    }
+
+    @SubscribeEvent
+    public static void registerClientPayloadHandlers(RegisterClientPayloadHandlersEvent event) {
+        Services.SERVER_NETWORKING.applyClientboundPacketRegistrations((((NeoForgeServerNetworkingHelper) Services.SERVER_NETWORKING).createClientboundRegistrar(event)));
     }
 
     @SubscribeEvent

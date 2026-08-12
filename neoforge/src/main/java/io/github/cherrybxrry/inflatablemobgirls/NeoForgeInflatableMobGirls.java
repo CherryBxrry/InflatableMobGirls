@@ -6,6 +6,7 @@ import io.github.cherrybxrry.inflatablemobgirls.platform.ServicesClient;
 import io.github.cherrybxrry.inflatablemobgirls.platform.services.IAttributeRegistryHelper;
 import io.github.cherrybxrry.inflatablemobgirls.platform.services.ISpawnPlacementRegistryHelper;
 import io.github.cherrybxrry.inflatablemobgirls.platform.services.NeoForgeRegistryHelper;
+import io.github.cherrybxrry.inflatablemobgirls.platform.services.NeoForgeServerNetworkingHelper;
 import io.github.cherrybxrry.inflatablemobgirls.platform.services.client.NeoForgeClientNetworkingHelper;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -57,6 +58,7 @@ public class NeoForgeInflatableMobGirls {
 
     private static void onRegisterPayloadHandlers(RegisterPayloadHandlersEvent event) {
         final PayloadRegistrar registrar = event.registrar("1");
-        ServicesClient.CLIENT_NETWORKING.applyServerboundPacketRegistrations((((NeoForgeClientNetworkingHelper) ServicesClient.CLIENT_NETWORKING).createRegistrarForEvent(registrar)));
+        ServicesClient.CLIENT_NETWORKING.applyServerboundPacketRegistrations((((NeoForgeClientNetworkingHelper) ServicesClient.CLIENT_NETWORKING).createServerboundRegistrar(registrar)));
+        Services.SERVER_NETWORKING.applyClientboundPacketRegistrations((((NeoForgeServerNetworkingHelper) Services.SERVER_NETWORKING).createClientboundRegistrar(registrar)));
     }
 }

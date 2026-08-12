@@ -2,6 +2,7 @@ package io.github.cherrybxrry.inflatablemobgirls;
 
 import io.github.cherrybxrry.inflatablemobgirls.platform.Services;
 import io.github.cherrybxrry.inflatablemobgirls.platform.ServicesClient;
+import io.github.cherrybxrry.inflatablemobgirls.platform.services.FabricServerNetworkingHelper;
 import io.github.cherrybxrry.inflatablemobgirls.platform.services.client.FabricClientNetworkingHelper;
 import io.github.cherrybxrry.inflatablemobgirls.platform.worldgen.FabricWorldGen;
 import net.fabricmc.api.ModInitializer;
@@ -19,7 +20,8 @@ public class FabricInflatableMobGirls implements ModInitializer {
         Services.DATAPACKS.applySyncedDatapackRegistrations(DynamicRegistries::registerSynced);
         Services.SPAWN_PLACEMENTS.applySpawnPlacements(SpawnPlacements::register);
 
-        ServicesClient.CLIENT_NETWORKING.applyServerboundPacketRegistrations((((FabricClientNetworkingHelper) ServicesClient.CLIENT_NETWORKING).createRegistrarForPlay()));
+        ServicesClient.CLIENT_NETWORKING.applyServerboundPacketRegistrations((((FabricClientNetworkingHelper) ServicesClient.CLIENT_NETWORKING).createServerboundRegistrar()));
+        Services.SERVER_NETWORKING.applyClientboundPacketRegistrations((((FabricServerNetworkingHelper) Services.SERVER_NETWORKING).createClientboundRegistrar()));
 
         FabricWorldGen.load();
     }

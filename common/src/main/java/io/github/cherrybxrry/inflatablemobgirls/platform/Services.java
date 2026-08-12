@@ -10,6 +10,7 @@ public class Services {
     public static final IDatapackRegistryHelper DATAPACKS = load(IDatapackRegistryHelper.class);
     public static final IPlatformHelper PLATFORM = load(IPlatformHelper.class);
     public static final IRegistryHelper REGISTRY = load(IRegistryHelper.class);
+    public static final IServerNetworkingHelper SERVER_NETWORKING = load(IServerNetworkingHelper.class);
     public static final ISpawnPlacementRegistryHelper SPAWN_PLACEMENTS = load(ISpawnPlacementRegistryHelper.class);
 
     public static <T> T load(Class<T> clazz) {
