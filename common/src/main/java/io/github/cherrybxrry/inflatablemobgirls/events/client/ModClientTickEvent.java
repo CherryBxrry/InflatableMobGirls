@@ -1,7 +1,7 @@
 package io.github.cherrybxrry.inflatablemobgirls.events.client;
 
 import io.github.cherrybxrry.inflatablemobgirls.init.client.ModKeyMappings;
-import io.github.cherrybxrry.inflatablemobgirls.networking.packets.ServerboundRiddenInputPacket;
+import io.github.cherrybxrry.inflatablemobgirls.networking.packet.ServerboundRiddenInputPacket;
 import io.github.cherrybxrry.inflatablemobgirls.platform.ServicesClient;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.entity.player.Player;

@@ -2,11 +2,14 @@ package io.github.cherrybxrry.inflatablemobgirls.networking;
 
 import io.github.cherrybxrry.inflatablemobgirls.entities.PlayerRideableMeleeAttacking;
 import io.github.cherrybxrry.inflatablemobgirls.entities.PlayerRideableRangedAttacking;
-import io.github.cherrybxrry.inflatablemobgirls.networking.packets.ServerboundRiddenInputPacket;
+import io.github.cherrybxrry.inflatablemobgirls.networking.packet.ServerboundRiddenInputPacket;
+import io.github.cherrybxrry.inflatablemobgirls.platform.services.client.IClientNetworkingHelper;
 import net.minecraft.world.entity.player.Player;
 
-public class ModServerPayloadHandlers {
-    public static void handleRiddenInput(final ServerboundRiddenInputPacket packet, Player player) {
+public class ServerboundPackets {
+    public static void handleRiddenInput(final ServerboundRiddenInputPacket packet, IClientNetworkingHelper.Context context) {
+        Player player = context.player();
+
         switch (packet.action()) {
             case START_MELEE_ATTACK -> {
                 if (player.getVehicle() instanceof PlayerRideableMeleeAttacking vehicle && vehicle.canMeleeAttack() && vehicle.getMeleeAttackCooldown() == 0) {

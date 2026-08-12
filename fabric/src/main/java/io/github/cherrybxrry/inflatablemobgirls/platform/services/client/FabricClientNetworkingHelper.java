@@ -34,7 +34,7 @@ public class FabricClientNetworkingHelper implements IClientNetworkingHelper {
         }
     }
 
-    public IClientNetworkingHelper.ServerBoundRegistrar createRegistrarForPlay() {
+    public IClientNetworkingHelper.ServerBoundRegistrar createServerboundRegistrar() {
         return new IClientNetworkingHelper.ServerBoundRegistrar() {
             @Override
             public <T extends CustomPacketPayload> void register(CustomPacketPayload.Type<T> type, StreamCodec<? super FriendlyByteBuf, T> codec, ServerboundHandler<T> handler) {

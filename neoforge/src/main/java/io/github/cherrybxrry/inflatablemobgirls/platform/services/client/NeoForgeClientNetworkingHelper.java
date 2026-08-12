@@ -34,15 +34,15 @@ public class NeoForgeClientNetworkingHelper implements IClientNetworkingHelper {
         }
     }
 
-    public IClientNetworkingHelper.ServerBoundRegistrar createRegistrarForEvent(PayloadRegistrar registrar) {
-        return new IClientNetworkingHelper.ServerBoundRegistrar() {
+    public ServerBoundRegistrar createServerboundRegistrar(PayloadRegistrar registrar) {
+        return new ServerBoundRegistrar() {
             @Override
             public <T extends CustomPacketPayload> void register(CustomPacketPayload.Type<T> type, StreamCodec<? super FriendlyByteBuf, T> codec, ServerboundHandler<T> handler) {
                 registrar.commonToServer(
                         type,
                         codec,
                         (payload, context) -> {
-                            IClientNetworkingHelper.Context ctx = new NeoForgeContext(context);
+                            Context ctx = new NeoForgeContext(context);
                             handler.handle(payload, ctx);
                         }
                 );

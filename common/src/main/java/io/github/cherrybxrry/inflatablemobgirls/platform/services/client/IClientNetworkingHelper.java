@@ -21,7 +21,7 @@ public interface IClientNetworkingHelper {
     }
 
     @FunctionalInterface
-    interface ServerboundHandler<T> {
+    interface ServerboundHandler<T extends CustomPacketPayload> {
         void handle(T packet, Context context);
     }
 
