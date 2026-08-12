@@ -5,7 +5,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 
-public class ModRegistries {
+public final class ModRegistries {
     private ModRegistries() {
         throw new UnsupportedOperationException("This class is a registry class");
     }

@@ -10,7 +10,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 
 import java.util.Set;
 
-public class ModBlockEntityTypes {
+public final class ModBlockEntityTypes {
     private ModBlockEntityTypes() {
         throw new UnsupportedOperationException("This class is a registry class");
     }

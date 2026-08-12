@@ -4,7 +4,7 @@ import io.github.cherrybxrry.inflatablemobgirls.Constants;
 import io.github.cherrybxrry.inflatablemobgirls.client.renderer.special.MobGirlSkullSpecialRenderer;
 import io.github.cherrybxrry.inflatablemobgirls.platform.ServicesClient;
 
-public class ModSpecialModelRenderers {
+public final class ModSpecialModelRenderers {
     private ModSpecialModelRenderers() {
         throw new UnsupportedOperationException("This class is a registry class");
     }

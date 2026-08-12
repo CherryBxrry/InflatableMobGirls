@@ -3,7 +3,7 @@ package io.github.cherrybxrry.inflatablemobgirls.init;
 import io.github.cherrybxrry.inflatablemobgirls.entities.creepergirl.CreeperGirlVariant;
 import io.github.cherrybxrry.inflatablemobgirls.platform.Services;
 
-public class ModDatapackRegistries {
+public final class ModDatapackRegistries {
     private ModDatapackRegistries() {
         throw new UnsupportedOperationException("This class is a registry class");
     }
