@@ -15,6 +15,7 @@ public final class ModDataGen {
         event.createProvider(ModEnglishLangProvider::new);
         event.createProvider(ModEntityTypeTagsProvider::new);
         event.createProvider(ModEquipmentAssetProvider::new);
+        event.createProvider(ModGlobalLootModifierProvider::new);
         event.createProvider(ModItemTagsProvider::new);
         event.createProvider(ModLootTableProvider::new);
         event.createProvider(ModModelProvider::new);

@@ -775,7 +775,7 @@ public class CreeperGirl extends InflatableMobGirl {
     @Override
     public boolean killedEntity(@NonNull ServerLevel level, @NonNull LivingEntity entity, @NonNull DamageSource source) {
         if (this.shouldDropLoot(level) && this.isCharged() && !this.droppedSkulls) {
-            entity.dropFromLootTable(level, source, false, ModLootTables.CHARGED_CREEPER_GIRL, itemStack -> {
+            entity.dropFromLootTable(level, source, false, BuiltInLootTables.CHARGED_CREEPER, itemStack -> {
                 entity.spawnAtLocation(level, itemStack);
                 this.droppedSkulls = true;
             });
