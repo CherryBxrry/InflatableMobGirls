@@ -11,7 +11,7 @@ import net.minecraft.util.Mth;
 import org.jetbrains.annotations.NotNull;
 import org.jspecify.annotations.NonNull;
 
-public class GhastGirlModel extends EntityModel<GhastGirlRenderState> {
+public class GhastGirlModel extends EntityModel<GhastGirlRenderState> implements SpawnerModel {
     private static final float MAX_WALK_ANIMATION_SPEED = 2.0F;
     private static final float WALK_ANIMATION_SCALE_FACTOR = 2.5F;
 
@@ -270,7 +270,8 @@ public class GhastGirlModel extends EntityModel<GhastGirlRenderState> {
     @Override
     public void setupAnim(@NonNull GhastGirlRenderState state) {
         super.setupAnim(state);
-        applyHeadRotation(state.yRot, state.xRot);
+        this.applyHeadRotation(state.yRot, state.xRot);
+        this.applySpawnerAnimation(this.idleStand0Animation, state.isSpawner);
 
         this.idleStand0Animation.apply(state.idleStand0Animation, state.ageInTicks);
         this.idleStand1Animation.apply(state.idleStand1Animation, state.ageInTicks);

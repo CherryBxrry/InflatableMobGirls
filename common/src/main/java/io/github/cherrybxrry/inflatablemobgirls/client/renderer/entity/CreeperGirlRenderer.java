@@ -11,7 +11,7 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.Identifier;
 import org.jspecify.annotations.NonNull;
 
-public class CreeperGirlRenderer extends AgeableMobRenderer<CreeperGirl, CreeperGirlRenderState, CreeperGirlModel> {
+public class CreeperGirlRenderer extends AgeableMobRenderer<CreeperGirl, CreeperGirlRenderState, CreeperGirlModel> implements SpawnerEntityRenderer {
     public CreeperGirlRenderer(EntityRendererProvider.Context context) {
         super(context, new AdultCreeperGirlModel(context.bakeLayer(ModModelLayers.CREEPER_GIRL)), new BabyCreeperGirlModel(context.bakeLayer(ModModelLayers.CREEPER_GIRL_BABY)), CreeperGirl.WIDTH);
     }
@@ -62,6 +62,8 @@ public class CreeperGirlRenderer extends AgeableMobRenderer<CreeperGirl, Creeper
 
         state.attackAnimationState.copyFrom(entity.attackAnimationState);
 
+
+        state.isSpawner = this.isSpawner(entity);
         state.texture = entity.getTexture();
     }
 }

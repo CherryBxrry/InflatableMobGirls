@@ -192,6 +192,7 @@ public class AdultCreeperGirlModel extends CreeperGirlModel {
     @Override
     public void setupAnim(@NonNull CreeperGirlRenderState state) {
         super.setupAnim(state);
+        this.applySpawnerAnimation(this.idle0Animation, state.isSpawner);
 
         this.idle0Animation.apply(state.idle0AnimationState, state.ageInTicks);
         this.idle1Animation.apply(state.idle1AnimationState, state.ageInTicks);

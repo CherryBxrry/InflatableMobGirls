@@ -9,7 +9,7 @@ import net.minecraft.util.Mth;
 import org.jetbrains.annotations.NotNull;
 import org.jspecify.annotations.NonNull;
 
-public abstract class CreeperGirlModel extends EntityModel<CreeperGirlRenderState> {
+public abstract class CreeperGirlModel extends EntityModel<CreeperGirlRenderState> implements SpawnerModel {
     private static final float MAX_WALK_ANIMATION_SPEED = 2.0F;
     private static final float WALK_ANIMATION_SCALE_FACTOR = 2.5F;
 
@@ -26,7 +26,7 @@ public abstract class CreeperGirlModel extends EntityModel<CreeperGirlRenderStat
     @Override
     public void setupAnim(@NonNull CreeperGirlRenderState state) {
         super.setupAnim(state);
-        applyHeadRotation(state.yRot, state.xRot);
+        this.applyHeadRotation(state.yRot, state.xRot);
 
         this.walkAnimation.applyWalk(state.walkAnimationPos, state.walkAnimationSpeed, MAX_WALK_ANIMATION_SPEED, WALK_ANIMATION_SCALE_FACTOR);
         this.attackAnimation.apply(state.attackAnimationState, state.ageInTicks);

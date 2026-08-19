@@ -1,10 +1,9 @@
 package io.github.cherrybxrry.inflatablemobgirls.client.renderer.entity.state;
 
-import net.minecraft.client.renderer.entity.state.LivingEntityRenderState;
 import net.minecraft.world.entity.AnimationState;
 import net.minecraft.world.item.ItemStack;
 
-public class GhastGirlRenderState extends LivingEntityRenderState {
+public class GhastGirlRenderState extends InflatableMobGirlRenderState {
     public int stage = 0;
     public ItemStack bodyItem;
     public boolean isRidden;
