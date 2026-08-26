@@ -31,6 +31,11 @@ public class GhastGirlRenderer extends MobRenderer<GhastGirl, GhastGirlRenderSta
     }
 
     @Override
+    protected float getShadowRadius(@NonNull GhastGirlRenderState state) {
+        return (state.stage < 3 ? GhastGirl.WIDTH : GhastGirl.BLIMP_WIDTH) * 0.75F;
+    }
+
+    @Override
     public @NonNull GhastGirlRenderState createRenderState() {
         return new GhastGirlRenderState();
     }
