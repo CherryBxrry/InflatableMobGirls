@@ -271,7 +271,7 @@ public class GhastGirl extends InflatableFlyingMobGirl implements PlayerRideable
         if (this.isTame()) {
             Objects.requireNonNull(this.getAttribute(Attributes.MAX_HEALTH)).setBaseValue(TAME_HEALTH);
             Objects.requireNonNull(this.getAttribute(Attributes.ATTACK_DAMAGE)).setBaseValue(TAME_DAMAGE);
-            this.setHealth(40.0F);
+            this.setHealth(TAME_HEALTH);
         } else {
             Objects.requireNonNull(this.getAttribute(Attributes.MAX_HEALTH)).setBaseValue(START_HEALTH);
             Objects.requireNonNull(this.getAttribute(Attributes.ATTACK_DAMAGE)).setBaseValue(START_DAMAGE);
