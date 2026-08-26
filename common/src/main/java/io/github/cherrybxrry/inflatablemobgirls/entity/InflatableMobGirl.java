@@ -242,7 +242,9 @@ public abstract class InflatableMobGirl extends TamableAnimal implements Neutral
         return false;
     }
 
-    protected abstract void setupAnimationStates();
+    protected void setupAnimationStates() {
+        this.performAttackAnimation();
+    }
 
     @Nullable
     protected abstract AnimationState getAttackAnimation();

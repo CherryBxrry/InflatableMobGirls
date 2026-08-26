@@ -622,6 +622,8 @@ public class CreeperGirl extends InflatableMobGirl {
      */
     @Override
     protected void setupAnimationStates() {
+        super.setupAnimationStates();
+
         int stage = this.getStage();
         boolean inflating = this.isVisuallyInflating();
         boolean regenerating = this.isRegenerating();
@@ -676,8 +678,6 @@ public class CreeperGirl extends InflatableMobGirl {
         } else {
             this.stopAllFromExcept(this.sittingAnimations);
         }
-
-        this.performAttackAnimation();
     }
 
     @Override

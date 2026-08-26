@@ -367,6 +367,8 @@ public class GhastGirl extends InflatableFlyingMobGirl implements PlayerRideable
 
     @Override
     protected void setupAnimationStates() {
+        super.setupAnimationStates();
+
         boolean charging = this.isCharging();
         boolean inflating = this.isVisuallyInflating();
         boolean onGeyser = this.onGeyser();
@@ -411,8 +413,6 @@ public class GhastGirl extends InflatableFlyingMobGirl implements PlayerRideable
         } else {
             this.stopAllFromExcept(this.attackAnimations, this.attack0Animation);
         }
-
-        this.performAttackAnimation();
     }
 
     @Override
