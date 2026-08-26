@@ -194,34 +194,34 @@ public class AdultCreeperGirlModel extends CreeperGirlModel {
         super.setupAnim(state);
         this.applySpawnerAnimation(this.idle0Animation, state.isSpawner);
 
-        this.idle0Animation.apply(state.idle0AnimationState, state.ageInTicks);
-        this.idle1Animation.apply(state.idle1AnimationState, state.ageInTicks);
-        this.idle2Animation.apply(state.idle2AnimationState, state.ageInTicks);
-        this.idle3Animation.apply(state.idleRegen0AnimationState, state.ageInTicks);
-        this.idle4Animation.apply(state.idleRegen1AnimationState, state.ageInTicks);
-        this.idle5Animation.apply(state.idleRegen2AnimationState, state.ageInTicks);
+        this.idle0Animation.apply(state.idle0Animation, state.ageInTicks);
+        this.idle1Animation.apply(state.idle1Animation, state.ageInTicks);
+        this.idle2Animation.apply(state.idle2Animation, state.ageInTicks);
+        this.idle3Animation.apply(state.idleRegen0Animation, state.ageInTicks);
+        this.idle4Animation.apply(state.idleRegen1Animation, state.ageInTicks);
+        this.idle5Animation.apply(state.idleRegen2Animation, state.ageInTicks);
 
-        this.idleCharged0Animation.apply(state.idleCharged0AnimationState, state.ageInTicks);
-        this.idleCharged1Animation.apply(state.idleCharged1AnimationState, state.ageInTicks);
-        this.idleCharged2Animation.apply(state.idleCharged2AnimationState, state.ageInTicks);
+        this.idleCharged0Animation.apply(state.idleCharged0Animation, state.ageInTicks);
+        this.idleCharged1Animation.apply(state.idleCharged1Animation, state.ageInTicks);
+        this.idleCharged2Animation.apply(state.idleCharged2Animation, state.ageInTicks);
 
-        this.sit0Animation.apply(state.sit0AnimationState, state.ageInTicks);
-        this.sit1Animation.apply(state.sit1AnimationState, state.ageInTicks);
-        this.sit2Animation.apply(state.sit2AnimationState, state.ageInTicks);
+        this.sit0Animation.apply(state.sit0Animation, state.ageInTicks);
+        this.sit1Animation.apply(state.sit1Animation, state.ageInTicks);
+        this.sit2Animation.apply(state.sit2Animation, state.ageInTicks);
 
-        this.sitCharged0Animation.apply(state.sitCharged0AnimationState, state.ageInTicks);
-        this.sitCharged1Animation.apply(state.sitCharged1AnimationState, state.ageInTicks);
-        this.sitCharged2Animation.apply(state.sitCharged2AnimationState, state.ageInTicks);
+        this.sitCharged0Animation.apply(state.sitCharged0Animation, state.ageInTicks);
+        this.sitCharged1Animation.apply(state.sitCharged1Animation, state.ageInTicks);
+        this.sitCharged2Animation.apply(state.sitCharged2Animation, state.ageInTicks);
 
-        this.inflate1Animation.apply(state.inflate1AnimationState, state.ageInTicks);
-        this.inflate2Animation.apply(state.inflate2AnimationState, state.ageInTicks);
-        this.inflate3Animation.apply(state.inflate3AnimationState, state.ageInTicks);
-        this.regen1Animation.apply(state.regen1AnimationState, state.ageInTicks);
-        this.regen2Animation.apply(state.regen2AnimationState, state.ageInTicks);
-        this.regen3Animation.apply(state.regen3AnimationState, state.ageInTicks);
+        this.inflate1Animation.apply(state.inflate1Animation, state.ageInTicks);
+        this.inflate2Animation.apply(state.inflate2Animation, state.ageInTicks);
+        this.inflate3Animation.apply(state.inflate3Animation, state.ageInTicks);
+        this.regen1Animation.apply(state.regen1Animation, state.ageInTicks);
+        this.regen2Animation.apply(state.regen2Animation, state.ageInTicks);
+        this.regen3Animation.apply(state.regen3Animation, state.ageInTicks);
 
-        this.inflateCharged1Animation.apply(state.inflateCharged1AnimationState, state.ageInTicks);
-        this.inflateCharged2Animation.apply(state.inflateCharged2AnimationState, state.ageInTicks);
-        this.inflateCharged3Animation.apply(state.inflateCharged3AnimationState, state.ageInTicks);
+        this.inflateCharged1Animation.apply(state.inflateCharged1Animation, state.ageInTicks);
+        this.inflateCharged2Animation.apply(state.inflateCharged2Animation, state.ageInTicks);
+        this.inflateCharged3Animation.apply(state.inflateCharged3Animation, state.ageInTicks);
     }
 }
