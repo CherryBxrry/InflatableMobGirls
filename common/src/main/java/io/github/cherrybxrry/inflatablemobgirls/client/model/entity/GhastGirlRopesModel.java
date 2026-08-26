@@ -101,7 +101,7 @@ public class GhastGirlRopesModel extends EntityModel<GhastGirlRenderState> {
         this.attack3Animation = GhastGirlAnimation.ATTACK3.bake(root);
     }
 
-    public static LayerDefinition createBodyLayer() {
+    public static LayerDefinition createRopesLayer() {
         MeshDefinition meshdefinition = new MeshDefinition();
         PartDefinition partdefinition = meshdefinition.getRoot();
 

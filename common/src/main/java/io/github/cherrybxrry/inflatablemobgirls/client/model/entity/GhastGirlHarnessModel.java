@@ -119,7 +119,7 @@ public class GhastGirlHarnessModel extends EntityModel<GhastGirlRenderState> {
         this.blinkAnimation = GhastGirlAnimation.BLINK.bake(root);
     }
 
-    public static LayerDefinition createBodyLayer() {
+    public static LayerDefinition createHarnessLayer() {
         MeshDefinition meshdefinition = new MeshDefinition();
         PartDefinition partdefinition = meshdefinition.getRoot();
 
