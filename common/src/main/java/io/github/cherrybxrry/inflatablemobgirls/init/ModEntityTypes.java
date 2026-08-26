@@ -1,8 +1,8 @@
 package io.github.cherrybxrry.inflatablemobgirls.init;
 
 import io.github.cherrybxrry.inflatablemobgirls.Constants;
-import io.github.cherrybxrry.inflatablemobgirls.entities.creepergirl.CreeperGirl;
-import io.github.cherrybxrry.inflatablemobgirls.entities.ghastgirl.GhastGirl;
+import io.github.cherrybxrry.inflatablemobgirls.entity.creepergirl.CreeperGirl;
+import io.github.cherrybxrry.inflatablemobgirls.entity.ghastgirl.GhastGirl;
 import io.github.cherrybxrry.inflatablemobgirls.platform.Services;
 import io.github.cherrybxrry.inflatablemobgirls.platform.util.RegistryHandle;
 import net.minecraft.core.registries.BuiltInRegistries;

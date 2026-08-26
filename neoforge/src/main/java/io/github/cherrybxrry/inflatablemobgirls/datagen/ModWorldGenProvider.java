@@ -2,7 +2,7 @@ package io.github.cherrybxrry.inflatablemobgirls.datagen;
 
 import io.github.cherrybxrry.inflatablemobgirls.Constants;
 import io.github.cherrybxrry.inflatablemobgirls.datagen.bootstrap.ModWorldGenBootstrapper;
-import io.github.cherrybxrry.inflatablemobgirls.entities.creepergirl.CreeperGirlVariants;
+import io.github.cherrybxrry.inflatablemobgirls.entity.creepergirl.CreeperGirlVariants;
 import io.github.cherrybxrry.inflatablemobgirls.init.ModEntitySpawns;
 import io.github.cherrybxrry.inflatablemobgirls.init.ModEntityTypes;
 import io.github.cherrybxrry.inflatablemobgirls.init.ModRegistries;

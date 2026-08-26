@@ -1,7 +1,7 @@
 package io.github.cherrybxrry.inflatablemobgirls.client.renderer.blockentity.state;
 
 import com.mojang.math.Transformation;
-import io.github.cherrybxrry.inflatablemobgirls.blocks.AbstractMobGirlSkullBlock;
+import io.github.cherrybxrry.inflatablemobgirls.block.AbstractMobGirlSkullBlock;
 import net.minecraft.client.renderer.blockentity.state.BlockEntityRenderState;
 import net.minecraft.client.renderer.rendertype.RenderType;
 

@@ -2,9 +2,9 @@ package io.github.cherrybxrry.inflatablemobgirls.datagen;
 
 import com.mojang.math.Quadrant;
 import io.github.cherrybxrry.inflatablemobgirls.Constants;
-import io.github.cherrybxrry.inflatablemobgirls.blocks.AbstractMobGirlSkullBlock;
-import io.github.cherrybxrry.inflatablemobgirls.blocks.CreepSporeBlock;
-import io.github.cherrybxrry.inflatablemobgirls.blocks.HugeCreepshroomStemBlock;
+import io.github.cherrybxrry.inflatablemobgirls.block.AbstractMobGirlSkullBlock;
+import io.github.cherrybxrry.inflatablemobgirls.block.CreepSporeBlock;
+import io.github.cherrybxrry.inflatablemobgirls.block.HugeCreepshroomStemBlock;
 import io.github.cherrybxrry.inflatablemobgirls.client.renderer.special.MobGirlSkullSpecialRenderer;
 import io.github.cherrybxrry.inflatablemobgirls.init.ModBlocks;
 import io.github.cherrybxrry.inflatablemobgirls.init.ModItems;

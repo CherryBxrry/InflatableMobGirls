@@ -1,6 +1,6 @@
 package io.github.cherrybxrry.inflatablemobgirls.init;
 
-import io.github.cherrybxrry.inflatablemobgirls.entities.InflatableMobGirl;
+import io.github.cherrybxrry.inflatablemobgirls.entity.InflatableMobGirl;
 import io.github.cherrybxrry.inflatablemobgirls.platform.Services;
 import net.minecraft.world.entity.SpawnPlacementTypes;
 import net.minecraft.world.level.levelgen.Heightmap;

@@ -1,6 +1,7 @@
 package io.github.cherrybxrry.inflatablemobgirls.init;
 
 import io.github.cherrybxrry.inflatablemobgirls.Constants;
+import io.github.cherrybxrry.inflatablemobgirls.block.*;
 import io.github.cherrybxrry.inflatablemobgirls.blocks.*;
 import io.github.cherrybxrry.inflatablemobgirls.platform.Services;
 import io.github.cherrybxrry.inflatablemobgirls.platform.util.BlockWithItemRegistryHandle;

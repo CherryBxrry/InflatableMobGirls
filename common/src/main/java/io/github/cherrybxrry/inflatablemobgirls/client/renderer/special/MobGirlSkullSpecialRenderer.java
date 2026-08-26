@@ -4,7 +4,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import io.github.cherrybxrry.inflatablemobgirls.blocks.AbstractMobGirlSkullBlock;
+import io.github.cherrybxrry.inflatablemobgirls.block.AbstractMobGirlSkullBlock;
 import io.github.cherrybxrry.inflatablemobgirls.client.renderer.blockentity.MobGirlSkullBlockRenderer;
 import net.minecraft.client.model.object.skull.SkullModelBase;
 import net.minecraft.client.renderer.SubmitNodeCollector;

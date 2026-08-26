@@ -4,7 +4,7 @@ import io.github.cherrybxrry.inflatablemobgirls.client.model.entity.AdultCreeper
 import io.github.cherrybxrry.inflatablemobgirls.client.model.entity.BabyCreeperGirlModel;
 import io.github.cherrybxrry.inflatablemobgirls.client.model.entity.CreeperGirlModel;
 import io.github.cherrybxrry.inflatablemobgirls.client.renderer.entity.state.CreeperGirlRenderState;
-import io.github.cherrybxrry.inflatablemobgirls.entities.creepergirl.CreeperGirl;
+import io.github.cherrybxrry.inflatablemobgirls.entity.creepergirl.CreeperGirl;
 import io.github.cherrybxrry.inflatablemobgirls.init.client.ModModelLayers;
 import net.minecraft.client.renderer.entity.AgeableMobRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;

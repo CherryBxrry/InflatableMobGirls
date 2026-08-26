@@ -1,6 +1,6 @@
 package io.github.cherrybxrry.inflatablemobgirls.init;
 
-import io.github.cherrybxrry.inflatablemobgirls.entities.creepergirl.CreeperGirlVariant;
+import io.github.cherrybxrry.inflatablemobgirls.entity.creepergirl.CreeperGirlVariant;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;

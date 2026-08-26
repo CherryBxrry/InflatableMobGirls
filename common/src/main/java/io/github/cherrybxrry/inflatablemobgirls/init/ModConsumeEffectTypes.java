@@ -1,7 +1,7 @@
 package io.github.cherrybxrry.inflatablemobgirls.init;
 
 import io.github.cherrybxrry.inflatablemobgirls.Constants;
-import io.github.cherrybxrry.inflatablemobgirls.consume_effects.InflateConsumeEffect;
+import io.github.cherrybxrry.inflatablemobgirls.consume_effect.InflateConsumeEffect;
 import io.github.cherrybxrry.inflatablemobgirls.platform.Services;
 import io.github.cherrybxrry.inflatablemobgirls.platform.util.RegistryHandle;
 import net.minecraft.world.item.consume_effects.ConsumeEffect;

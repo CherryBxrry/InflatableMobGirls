@@ -1,6 +1,6 @@
 package io.github.cherrybxrry.inflatablemobgirls;
 
-import io.github.cherrybxrry.inflatablemobgirls.events.client.ModClientTickEvent;
+import io.github.cherrybxrry.inflatablemobgirls.event.client.ModClientTickEvent;
 import io.github.cherrybxrry.inflatablemobgirls.platform.Services;
 import io.github.cherrybxrry.inflatablemobgirls.platform.ServicesClient;
 import io.github.cherrybxrry.inflatablemobgirls.platform.services.NeoForgeServerNetworkingHelper;

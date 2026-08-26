@@ -5,7 +5,7 @@ import io.github.cherrybxrry.inflatablemobgirls.client.model.entity.GhastGirlHar
 import io.github.cherrybxrry.inflatablemobgirls.client.model.entity.GhastGirlModel;
 import io.github.cherrybxrry.inflatablemobgirls.client.renderer.entity.layers.GhastGirlRopesLayer;
 import io.github.cherrybxrry.inflatablemobgirls.client.renderer.entity.state.GhastGirlRenderState;
-import io.github.cherrybxrry.inflatablemobgirls.entities.ghastgirl.GhastGirl;
+import io.github.cherrybxrry.inflatablemobgirls.entity.ghastgirl.GhastGirl;
 import io.github.cherrybxrry.inflatablemobgirls.enums.client.ModEquipmentLayerTypes;
 import io.github.cherrybxrry.inflatablemobgirls.init.client.ModModelLayers;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;

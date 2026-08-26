@@ -1,6 +1,6 @@
 package io.github.cherrybxrry.inflatablemobgirls.datagen.lootsubprovider;
 
-import io.github.cherrybxrry.inflatablemobgirls.blocks.CreepSporeBlock;
+import io.github.cherrybxrry.inflatablemobgirls.block.CreepSporeBlock;
 import io.github.cherrybxrry.inflatablemobgirls.init.ModBlocks;
 import io.github.cherrybxrry.inflatablemobgirls.init.ModItems;
 import io.github.cherrybxrry.inflatablemobgirls.platform.services.NeoForgeRegistryHelper;

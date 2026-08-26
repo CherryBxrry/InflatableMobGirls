@@ -1,7 +1,7 @@
 package io.github.cherrybxrry.inflatablemobgirls.networking;
 
-import io.github.cherrybxrry.inflatablemobgirls.entities.PlayerRideableMeleeAttacking;
-import io.github.cherrybxrry.inflatablemobgirls.entities.PlayerRideableRangedAttacking;
+import io.github.cherrybxrry.inflatablemobgirls.entity.PlayerRideableMeleeAttacking;
+import io.github.cherrybxrry.inflatablemobgirls.entity.PlayerRideableRangedAttacking;
 import io.github.cherrybxrry.inflatablemobgirls.networking.packet.ServerboundRiddenInputPacket;
 import io.github.cherrybxrry.inflatablemobgirls.platform.services.client.IClientNetworkingHelper;
 import net.minecraft.world.entity.player.Player;

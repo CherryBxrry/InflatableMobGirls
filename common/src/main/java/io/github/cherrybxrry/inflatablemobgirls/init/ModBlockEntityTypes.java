@@ -1,9 +1,9 @@
 package io.github.cherrybxrry.inflatablemobgirls.init;
 
 import io.github.cherrybxrry.inflatablemobgirls.Constants;
-import io.github.cherrybxrry.inflatablemobgirls.blocks.entity.CreepSporeBlockEntity;
-import io.github.cherrybxrry.inflatablemobgirls.blocks.entity.MobGirlSkullBlockEntity;
-import io.github.cherrybxrry.inflatablemobgirls.blocks.entity.NetherGeyserBlockEntity;
+import io.github.cherrybxrry.inflatablemobgirls.block.entity.CreepSporeBlockEntity;
+import io.github.cherrybxrry.inflatablemobgirls.block.entity.MobGirlSkullBlockEntity;
+import io.github.cherrybxrry.inflatablemobgirls.block.entity.NetherGeyserBlockEntity;
 import io.github.cherrybxrry.inflatablemobgirls.platform.Services;
 import io.github.cherrybxrry.inflatablemobgirls.platform.util.RegistryHandle;
 import net.minecraft.world.level.block.entity.BlockEntityType;
