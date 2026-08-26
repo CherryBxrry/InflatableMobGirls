@@ -124,70 +124,70 @@ public class CreeperGirl extends InflatableMobGirl {
     private boolean droppedSkulls;
 
     // Animations
-    public final AnimationState idle0AnimationState = new AnimationState();
-    public final AnimationState idle1AnimationState = new AnimationState();
-    public final AnimationState idle2AnimationState = new AnimationState();
-    public final AnimationState idleRegen0AnimationState = new AnimationState();
-    public final AnimationState idleRegen1AnimationState = new AnimationState();
-    public final AnimationState idleRegen2AnimationState = new AnimationState();
+    public final AnimationState idle0Animation = new AnimationState();
+    public final AnimationState idle1Animation = new AnimationState();
+    public final AnimationState idle2Animation = new AnimationState();
+    public final AnimationState idleRegen0Animation = new AnimationState();
+    public final AnimationState idleRegen1Animation = new AnimationState();
+    public final AnimationState idleRegen2Animation = new AnimationState();
 
-    public final AnimationState idleCharged0AnimationState = new AnimationState();
-    public final AnimationState idleCharged1AnimationState = new AnimationState();
-    public final AnimationState idleCharged2AnimationState = new AnimationState();
+    public final AnimationState idleCharged0Animation = new AnimationState();
+    public final AnimationState idleCharged1Animation = new AnimationState();
+    public final AnimationState idleCharged2Animation = new AnimationState();
 
-    public final AnimationState sit0AnimationState = new AnimationState();
-    public final AnimationState sit1AnimationState = new AnimationState();
-    public final AnimationState sit2AnimationState = new AnimationState();
+    public final AnimationState sit0Animation = new AnimationState();
+    public final AnimationState sit1Animation = new AnimationState();
+    public final AnimationState sit2Animation = new AnimationState();
 
-    public final AnimationState sitCharged0AnimationState = new AnimationState();
-    public final AnimationState sitCharged1AnimationState = new AnimationState();
-    public final AnimationState sitCharged2AnimationState = new AnimationState();
+    public final AnimationState sitCharged0Animation = new AnimationState();
+    public final AnimationState sitCharged1Animation = new AnimationState();
+    public final AnimationState sitCharged2Animation = new AnimationState();
 
-    public final AnimationState inflate1AnimationState = new AnimationState();
-    public final AnimationState inflate2AnimationState = new AnimationState();
-    public final AnimationState inflate3AnimationState = new AnimationState();
-    public final AnimationState regen1AnimationState = new AnimationState();
-    public final AnimationState regen2AnimationState = new AnimationState();
-    public final AnimationState regen3AnimationState = new AnimationState();
+    public final AnimationState inflate1Animation = new AnimationState();
+    public final AnimationState inflate2Animation = new AnimationState();
+    public final AnimationState inflate3Animation = new AnimationState();
+    public final AnimationState regen1Animation = new AnimationState();
+    public final AnimationState regen2Animation = new AnimationState();
+    public final AnimationState regen3Animation = new AnimationState();
 
-    public final AnimationState inflateCharged1AnimationState = new AnimationState();
-    public final AnimationState inflateCharged2AnimationState = new AnimationState();
-    public final AnimationState inflateCharged3AnimationState = new AnimationState();
+    public final AnimationState inflateCharged1Animation = new AnimationState();
+    public final AnimationState inflateCharged2Animation = new AnimationState();
+    public final AnimationState inflateCharged3Animation = new AnimationState();
 
-    public final AnimationState attackAnimationState = new AnimationState();
+    public final AnimationState attackAnimation = new AnimationState();
 
     // Animation lists for easier management
-    public final List<AnimationState> idleAnimationStates = List.of(
-            this.idle0AnimationState,
-            this.idle1AnimationState,
-            this.idle2AnimationState,
-            this.idleRegen2AnimationState,
-            this.idleRegen1AnimationState,
-            this.idleRegen0AnimationState,
-            this.idleCharged0AnimationState,
-            this.idleCharged1AnimationState,
-            this.idleCharged2AnimationState
+    public final List<AnimationState> idleAnimations = List.of(
+            this.idle0Animation,
+            this.idle1Animation,
+            this.idle2Animation,
+            this.idleRegen2Animation,
+            this.idleRegen1Animation,
+            this.idleRegen0Animation,
+            this.idleCharged0Animation,
+            this.idleCharged1Animation,
+            this.idleCharged2Animation
     );
 
-    public final List<AnimationState> sittingAnimationStates = List.of(
-            this.sit0AnimationState,
-            this.sit1AnimationState,
-            this.sit2AnimationState,
-            this.sitCharged0AnimationState,
-            this.sitCharged1AnimationState,
-            this.sitCharged2AnimationState
+    public final List<AnimationState> sittingAnimations = List.of(
+            this.sit0Animation,
+            this.sit1Animation,
+            this.sit2Animation,
+            this.sitCharged0Animation,
+            this.sitCharged1Animation,
+            this.sitCharged2Animation
     );
 
-    public final List<AnimationState> inflateAnimationStates = List.of(
-            this.inflate1AnimationState,
-            this.inflate2AnimationState,
-            this.inflate3AnimationState,
-            this.regen3AnimationState,
-            this.regen2AnimationState,
-            this.regen1AnimationState,
-            this.inflateCharged1AnimationState,
-            this.inflateCharged2AnimationState,
-            this.inflateCharged3AnimationState
+    public final List<AnimationState> inflateAnimations = List.of(
+            this.inflate1Animation,
+            this.inflate2Animation,
+            this.inflate3Animation,
+            this.regen3Animation,
+            this.regen2Animation,
+            this.regen1Animation,
+            this.inflateCharged1Animation,
+            this.inflateCharged2Animation,
+            this.inflateCharged3Animation
     );
 
     /**
@@ -630,30 +630,30 @@ public class CreeperGirl extends InflatableMobGirl {
 
         // Inflation Animations
         if (inflating) {
-            this.stopAllFromExcept(this.idleAnimationStates);
+            this.stopAllFromExcept(this.idleAnimations);
 
             int inflateIndex = Math.clamp(
                     stage + (regenerating ? 3 : charged ? 5 : -1),
                     0,
-                    this.inflateAnimationStates.size() - 1
+                    this.inflateAnimations.size() - 1
             );
 
-            AnimationState inflateAnimation = this.inflateAnimationStates.get(inflateIndex);
+            AnimationState inflateAnimation = this.inflateAnimations.get(inflateIndex);
 
-            this.stopAllFromExcept(this.inflateAnimationStates, inflateAnimation);
+            this.stopAllFromExcept(this.inflateAnimations, inflateAnimation);
             inflateAnimation.startIfStopped(this.tickCount);
         } else {
-            this.stopAllFromExcept(this.inflateAnimationStates);
+            this.stopAllFromExcept(this.inflateAnimations);
 
             int idleIndex = Math.clamp(
                     stage + (regenerating ? 2 : charged ? 6 : 0),
                     0,
-                    this.inflateAnimationStates.size() - 1
+                    this.inflateAnimations.size() - 1
             );
 
-            AnimationState idleAnimation = this.idleAnimationStates.get(idleIndex);
+            AnimationState idleAnimation = this.idleAnimations.get(idleIndex);
 
-            this.stopAllFromExcept(this.idleAnimationStates, idleAnimation);
+            this.stopAllFromExcept(this.idleAnimations, idleAnimation);
             idleAnimation.startIfStopped(this.tickCount);
         }
 
@@ -663,18 +663,18 @@ public class CreeperGirl extends InflatableMobGirl {
                 int sittingIndex = Math.clamp(
                         stage + (charged ? 3 : 0),
                         0,
-                        this.inflateAnimationStates.size() - 1
+                        this.inflateAnimations.size() - 1
                 );
 
-                sittingAnimation = this.sittingAnimationStates.get(sittingIndex);
+                sittingAnimation = this.sittingAnimations.get(sittingIndex);
             } else {
-                sittingAnimation = this.sittingAnimationStates.getFirst();
+                sittingAnimation = this.sittingAnimations.getFirst();
             }
 
-            this.stopAllFromExcept(this.sittingAnimationStates, sittingAnimation);
+            this.stopAllFromExcept(this.sittingAnimations, sittingAnimation);
             sittingAnimation.startIfStopped(this.tickCount);
         } else {
-            this.stopAllFromExcept(this.sittingAnimationStates);
+            this.stopAllFromExcept(this.sittingAnimations);
         }
 
         this.performAttackAnimation();
@@ -682,7 +682,7 @@ public class CreeperGirl extends InflatableMobGirl {
 
     @Override
     protected @NonNull AnimationState getAttackAnimation() {
-        return this.attackAnimationState;
+        return this.attackAnimation;
     }
 
     @Override

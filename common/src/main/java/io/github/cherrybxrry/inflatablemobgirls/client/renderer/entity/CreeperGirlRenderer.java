@@ -30,37 +30,37 @@ public class CreeperGirlRenderer extends AgeableMobRenderer<CreeperGirl, Creeper
     public void extractRenderState(@NonNull CreeperGirl entity, @NonNull CreeperGirlRenderState state, float partialTicks) {
         super.extractRenderState(entity, state, partialTicks);
 
-        state.idle0AnimationState.copyFrom(entity.idle0AnimationState);
-        state.idle1AnimationState.copyFrom(entity.idle1AnimationState);
-        state.idle2AnimationState.copyFrom(entity.idle2AnimationState);
-        state.idleRegen0AnimationState.copyFrom(entity.idleRegen0AnimationState);
-        state.idleRegen1AnimationState.copyFrom(entity.idleRegen1AnimationState);
-        state.idleRegen2AnimationState.copyFrom(entity.idleRegen2AnimationState);
+        state.idle0Animation.copyFrom(entity.idle0Animation);
+        state.idle1Animation.copyFrom(entity.idle1Animation);
+        state.idle2Animation.copyFrom(entity.idle2Animation);
+        state.idleRegen0Animation.copyFrom(entity.idleRegen0Animation);
+        state.idleRegen1Animation.copyFrom(entity.idleRegen1Animation);
+        state.idleRegen2Animation.copyFrom(entity.idleRegen2Animation);
 
-        state.idleCharged0AnimationState.copyFrom(entity.idleCharged0AnimationState);
-        state.idleCharged1AnimationState.copyFrom(entity.idleCharged1AnimationState);
-        state.idleCharged2AnimationState.copyFrom(entity.idleCharged2AnimationState);
+        state.idleCharged0Animation.copyFrom(entity.idleCharged0Animation);
+        state.idleCharged1Animation.copyFrom(entity.idleCharged1Animation);
+        state.idleCharged2Animation.copyFrom(entity.idleCharged2Animation);
 
-        state.sit0AnimationState.copyFrom(entity.sit0AnimationState);
-        state.sit1AnimationState.copyFrom(entity.sit1AnimationState);
-        state.sit2AnimationState.copyFrom(entity.sit2AnimationState);
+        state.sit0Animation.copyFrom(entity.sit0Animation);
+        state.sit1Animation.copyFrom(entity.sit1Animation);
+        state.sit2Animation.copyFrom(entity.sit2Animation);
 
-        state.sitCharged0AnimationState.copyFrom(entity.sitCharged0AnimationState);
-        state.sitCharged1AnimationState.copyFrom(entity.sitCharged1AnimationState);
-        state.sitCharged2AnimationState.copyFrom(entity.sitCharged2AnimationState);
+        state.sitCharged0Animation.copyFrom(entity.sitCharged0Animation);
+        state.sitCharged1Animation.copyFrom(entity.sitCharged1Animation);
+        state.sitCharged2Animation.copyFrom(entity.sitCharged2Animation);
 
-        state.inflate1AnimationState.copyFrom(entity.inflate1AnimationState);
-        state.inflate2AnimationState.copyFrom(entity.inflate2AnimationState);
-        state.inflate3AnimationState.copyFrom(entity.inflate3AnimationState);
-        state.regen1AnimationState.copyFrom(entity.regen1AnimationState);
-        state.regen2AnimationState.copyFrom(entity.regen2AnimationState);
-        state.regen3AnimationState.copyFrom(entity.regen3AnimationState);
+        state.inflate1Animation.copyFrom(entity.inflate1Animation);
+        state.inflate2Animation.copyFrom(entity.inflate2Animation);
+        state.inflate3Animation.copyFrom(entity.inflate3Animation);
+        state.regen1Animation.copyFrom(entity.regen1Animation);
+        state.regen2Animation.copyFrom(entity.regen2Animation);
+        state.regen3Animation.copyFrom(entity.regen3Animation);
 
-        state.inflateCharged1AnimationState.copyFrom(entity.inflateCharged1AnimationState);
-        state.inflateCharged2AnimationState.copyFrom(entity.inflateCharged2AnimationState);
-        state.inflateCharged3AnimationState.copyFrom(entity.inflateCharged3AnimationState);
+        state.inflateCharged1Animation.copyFrom(entity.inflateCharged1Animation);
+        state.inflateCharged2Animation.copyFrom(entity.inflateCharged2Animation);
+        state.inflateCharged3Animation.copyFrom(entity.inflateCharged3Animation);
 
-        state.attackAnimationState.copyFrom(entity.attackAnimationState);
+        state.attackAnimation.copyFrom(entity.attackAnimation);
 
 
         state.isSpawner = this.isSpawner(entity);

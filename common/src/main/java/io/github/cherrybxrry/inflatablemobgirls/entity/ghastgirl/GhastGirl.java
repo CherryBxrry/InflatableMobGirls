@@ -124,7 +124,7 @@ public class GhastGirl extends InflatableFlyingMobGirl implements PlayerRideable
 
     public AnimationState blinkAnimation = new AnimationState();
 
-    public final List<AnimationState> idleAnimationStates = List.of(
+    public final List<AnimationState> idleAnimations = List.of(
             idleStand0Animation,
             idleStand1Animation,
             idleStand2Animation,
@@ -136,14 +136,14 @@ public class GhastGirl extends InflatableFlyingMobGirl implements PlayerRideable
             idleRide3Animation
     );
 
-    public final List<AnimationState> sittingAnimationStates = List.of(
+    public final List<AnimationState> sittingAnimations = List.of(
             sit0Animation,
             sit1Animation,
             sit2Animation,
             sit3Animation
     );
 
-    public final List<AnimationState> inflateAnimationStates = List.of(
+    public final List<AnimationState> inflateAnimations = List.of(
             inflate1Animation,
             inflate2Animation,
             inflate3Animation,
@@ -157,7 +157,7 @@ public class GhastGirl extends InflatableFlyingMobGirl implements PlayerRideable
             ventInflate3Animation
     );
 
-    public final List<AnimationState> attackAnimationStates = List.of(
+    public final List<AnimationState> attackAnimations = List.of(
             attack0Animation,
             attack1Animation,
             attack2Animation,
@@ -375,41 +375,41 @@ public class GhastGirl extends InflatableFlyingMobGirl implements PlayerRideable
         int stage = this.getStage();
 
         if (inflating) {
-            this.stopAllFromExcept(this.idleAnimationStates);
-            this.stopAllFromExcept(this.sittingAnimationStates);
+            this.stopAllFromExcept(this.idleAnimations);
+            this.stopAllFromExcept(this.sittingAnimations);
 
-            int inflateIndex = Mth.clamp(stage + (onGeyser ? 5 : sitting ? 2 : -1), 0, this.inflateAnimationStates.size() - 1);
+            int inflateIndex = Mth.clamp(stage + (onGeyser ? 5 : sitting ? 2 : -1), 0, this.inflateAnimations.size() - 1);
 
-            AnimationState inflateAnimation = this.inflateAnimationStates.get(inflateIndex);
+            AnimationState inflateAnimation = this.inflateAnimations.get(inflateIndex);
 
-            this.stopAllFromExcept(this.inflateAnimationStates, inflateAnimation);
+            this.stopAllFromExcept(this.inflateAnimations, inflateAnimation);
             inflateAnimation.startIfStopped(this.tickCount);
         } else if (sitting) {
-            this.stopAllFromExcept(this.inflateAnimationStates);
-            this.stopAllFromExcept(this.idleAnimationStates);
+            this.stopAllFromExcept(this.inflateAnimations);
+            this.stopAllFromExcept(this.idleAnimations);
 
-            AnimationState sittingAnimation = this.sittingAnimationStates.get(stage);
+            AnimationState sittingAnimation = this.sittingAnimations.get(stage);
 
-            this.stopAllFromExcept(this.sittingAnimationStates, sittingAnimation);
+            this.stopAllFromExcept(this.sittingAnimations, sittingAnimation);
             sittingAnimation.startIfStopped(this.tickCount);
         } else {
-            this.stopAllFromExcept(this.inflateAnimationStates);
-            this.stopAllFromExcept(this.sittingAnimationStates);
+            this.stopAllFromExcept(this.inflateAnimations);
+            this.stopAllFromExcept(this.sittingAnimations);
 
-            int idleIndex = Mth.clamp(stage + (vehicle ? 4 : 0), 0, this.idleAnimationStates.size() - 1);
+            int idleIndex = Mth.clamp(stage + (vehicle ? 4 : 0), 0, this.idleAnimations.size() - 1);
 
-            AnimationState idleAnimation = this.idleAnimationStates.get(idleIndex);
+            AnimationState idleAnimation = this.idleAnimations.get(idleIndex);
 
-            this.stopAllFromExcept(this.idleAnimationStates, idleAnimation);
+            this.stopAllFromExcept(this.idleAnimations, idleAnimation);
             idleAnimation.startIfStopped(this.tickCount);
         }
 
         this.blinkAnimation.animateWhen(this.isMaxStage() && !inflating, this.tickCount);
 
         if (charging && stage != 0) {
-            this.attackAnimationStates.get(Math.min(stage, this.attackAnimationStates.size() - 1)).startIfStopped(this.tickCount);
+            this.attackAnimations.get(Math.min(stage, this.attackAnimations.size() - 1)).startIfStopped(this.tickCount);
         } else {
-            this.stopAllFromExcept(this.attackAnimationStates, this.attack0Animation);
+            this.stopAllFromExcept(this.attackAnimations, this.attack0Animation);
         }
 
         this.performAttackAnimation();

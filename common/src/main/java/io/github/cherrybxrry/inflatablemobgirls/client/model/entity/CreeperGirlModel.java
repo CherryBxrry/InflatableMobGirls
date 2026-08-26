@@ -29,7 +29,7 @@ public abstract class CreeperGirlModel extends EntityModel<CreeperGirlRenderStat
         this.applyHeadRotation(state.yRot, state.xRot);
 
         this.walkAnimation.applyWalk(state.walkAnimationPos, state.walkAnimationSpeed, MAX_WALK_ANIMATION_SPEED, WALK_ANIMATION_SCALE_FACTOR);
-        this.attackAnimation.apply(state.attackAnimationState, state.ageInTicks);
+        this.attackAnimation.apply(state.attackAnimation, state.ageInTicks);
     }
 
     private void applyHeadRotation(float yRot, float xRot) {
