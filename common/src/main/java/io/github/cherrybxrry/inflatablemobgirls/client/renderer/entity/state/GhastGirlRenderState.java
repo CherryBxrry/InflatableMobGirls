@@ -4,7 +4,6 @@ import net.minecraft.world.entity.AnimationState;
 import net.minecraft.world.item.ItemStack;
 
 public class GhastGirlRenderState extends InflatableMobGirlRenderState {
-    public int stage = 0;
     public ItemStack bodyItem;
     public boolean isRidden;
     public boolean isLeashHolder;
