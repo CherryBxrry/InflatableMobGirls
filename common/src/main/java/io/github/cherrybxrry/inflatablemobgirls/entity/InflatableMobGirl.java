@@ -45,12 +45,17 @@ import java.util.*;
 public abstract class InflatableMobGirl extends TamableAnimal implements NeutralMob {
     private static final EntityDataAccessor<Long> DATA_ANGER_END_TIME;
     public static final EntityDataAccessor<Long> DATA_LAST_INFLATE_TICK;
-    protected static final EntityDataAccessor<Integer> DATA_STAGE;
+    protected static final EntityDataAccessor<Byte> DATA_STAGE;
     public static final EntityDataAccessor<Long> DATA_INFLATE_TICKS;
 
     private static final String TAG_INFLATE_TICKS = "InflateTicks";
     private static final String TAG_LAST_INFLATE_TICK = "LastInflateTick";
     private static final String TAG_STAGE = "Stage";
+
+    private static final long DEFAULT_ANGER_END_TIME = -1L;
+    private static final byte DEFAULT_STAGE = (byte) 0;
+    private static final long DEFAULT_INFLATE_TICKS = 0L;
+    private static final long DEFAULT_LAST_INFLATE_TICKS = 0L;
 
     private static final UniformInt PERSISTENT_ANGER_TIME;
     private @Nullable EntityReference<LivingEntity> persistentAngerTarget;
@@ -68,10 +73,10 @@ public abstract class InflatableMobGirl extends TamableAnimal implements Neutral
     @Override
     protected void defineSynchedData(SynchedEntityData.@NonNull Builder entityData) {
         super.defineSynchedData(entityData);
-        entityData.define(DATA_INFLATE_TICKS, 0L);
-        entityData.define(DATA_LAST_INFLATE_TICK, 0L);
-        entityData.define(DATA_STAGE, 0);
-        entityData.define(DATA_ANGER_END_TIME, -1L);
+        entityData.define(DATA_INFLATE_TICKS, DEFAULT_INFLATE_TICKS);
+        entityData.define(DATA_LAST_INFLATE_TICK, DEFAULT_LAST_INFLATE_TICKS);
+        entityData.define(DATA_STAGE, DEFAULT_STAGE);
+        entityData.define(DATA_ANGER_END_TIME, DEFAULT_ANGER_END_TIME);
     }
 
     @Override
@@ -134,11 +139,11 @@ public abstract class InflatableMobGirl extends TamableAnimal implements Neutral
 
     // Shared getters/setters
     public int getStage() {
-        return entityData.get(DATA_STAGE);
+        return (int) entityData.get(DATA_STAGE);
     }
 
     public void setStage(int stage) {
-        entityData.set(DATA_STAGE, Math.clamp(stage, 0, this.getMaxStage()));
+        entityData.set(DATA_STAGE, (byte) Math.clamp(stage, 0, this.getMaxStage()));
     }
 
     public abstract int getMaxStage();
@@ -423,7 +428,7 @@ public abstract class InflatableMobGirl extends TamableAnimal implements Neutral
         DATA_LAST_INFLATE_TICK = SynchedEntityData.defineId(InflatableMobGirl.class, EntityDataSerializers.LONG);
         DATA_ANGER_END_TIME = SynchedEntityData.defineId(InflatableMobGirl.class, EntityDataSerializers.LONG);
         PERSISTENT_ANGER_TIME = TimeUtil.rangeOfSeconds(20, 39);
-        DATA_STAGE = SynchedEntityData.defineId(InflatableMobGirl.class, EntityDataSerializers.INT);
+        DATA_STAGE = SynchedEntityData.defineId(InflatableMobGirl.class, EntityDataSerializers.BYTE);
     }
 
     /**

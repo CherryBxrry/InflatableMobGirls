@@ -84,6 +84,8 @@ public class GhastGirl extends InflatableFlyingMobGirl implements PlayerRideable
     public static final float BLIMP_WIDTH = 2.99F;
     public static final float LEASH_OFFSET = 0.24F;
 
+    private static final byte MAX_STAGE = (byte) 2;
+
     private int kickTime = 0;
     private int rangedCooldown = 0;
 
@@ -334,7 +336,7 @@ public class GhastGirl extends InflatableFlyingMobGirl implements PlayerRideable
 
     @Override
     public int getMaxStage() {
-        return 3;
+        return MAX_STAGE;
     }
 
     @Override

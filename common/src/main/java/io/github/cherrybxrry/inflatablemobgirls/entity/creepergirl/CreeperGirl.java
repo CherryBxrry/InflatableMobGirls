@@ -111,7 +111,7 @@ public class CreeperGirl extends InflatableMobGirl {
     private static final Identifier SPEED_MODIFIER_BABY_ID = Constants.id("baby");
     private static final AttributeModifier SPEED_MODIFIER_BABY;
 
-    private static final int MAX_STAGE = 3;
+    private static final byte MAX_STAGE = (byte) 3;
     private final static int REGEN_BIT = 1 << 9;
     private final static int CHARGED_BIT = 1 << 10;
 
