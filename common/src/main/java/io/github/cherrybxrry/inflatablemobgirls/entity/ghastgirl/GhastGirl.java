@@ -72,8 +72,6 @@ public class GhastGirl extends InflatableFlyingMobGirl implements PlayerRideable
     // Taming
     private static final float START_HEALTH = 10.0F;
     private static final float TAME_HEALTH = 20.0F;
-    private static final float START_DAMAGE = 1.0F;
-    private static final float TAME_DAMAGE = 2.0F;
 
     // Hitbox
     public static final float STAND_HEIGHT = 4.8F;
@@ -199,7 +197,7 @@ public class GhastGirl extends InflatableFlyingMobGirl implements PlayerRideable
                 .add(Attributes.CAMERA_DISTANCE, 8.0F)
                 .add(Attributes.ATTACK_KNOCKBACK, 1.0f)
                 .add(Attributes.ATTACK_SPEED, 1.0F)
-                .add(Attributes.ATTACK_DAMAGE, START_DAMAGE)
+                .add(Attributes.ATTACK_DAMAGE, 1.0F)
                 .add(Attributes.ATTACK_KNOCKBACK, 3.0F);
     }
 
@@ -270,11 +268,9 @@ public class GhastGirl extends InflatableFlyingMobGirl implements PlayerRideable
     protected void applyTamingSideEffects() {
         if (this.isTame()) {
             Objects.requireNonNull(this.getAttribute(Attributes.MAX_HEALTH)).setBaseValue(TAME_HEALTH);
-            Objects.requireNonNull(this.getAttribute(Attributes.ATTACK_DAMAGE)).setBaseValue(TAME_DAMAGE);
             this.setHealth(TAME_HEALTH);
         } else {
             Objects.requireNonNull(this.getAttribute(Attributes.MAX_HEALTH)).setBaseValue(START_HEALTH);
-            Objects.requireNonNull(this.getAttribute(Attributes.ATTACK_DAMAGE)).setBaseValue(START_DAMAGE);
         }
     }
 
