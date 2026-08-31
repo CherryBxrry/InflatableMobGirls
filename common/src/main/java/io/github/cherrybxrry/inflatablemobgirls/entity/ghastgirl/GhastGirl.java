@@ -688,7 +688,7 @@ public class GhastGirl extends InflatableFlyingMobGirl implements PlayerRideable
     }
 
     public void setFuelLevel(int fuelLevel) {
-        this.entityData.set(DATA_FUEL_LEVEL, Math.min(fuelLevel, FUEL_PER_STAGE * this.getMaxStage()));
+        this.entityData.set(DATA_FUEL_LEVEL, Math.clamp(fuelLevel, 0, FUEL_PER_STAGE * this.getMaxStage()));
     }
 
     public int getFuelLevel() {
