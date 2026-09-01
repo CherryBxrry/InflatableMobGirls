@@ -79,7 +79,6 @@ public class GhastGirlRenderer extends MobRenderer<GhastGirl, GhastGirlRenderSta
 
         state.blinkAnimation.copyFrom(entity.blinkAnimation);
 
-        state.stage = entity.getStage();
         state.bodyItem = entity.getItemBySlot(EquipmentSlot.BODY).copy();
         state.isRidden = entity.isVehicle();
         state.isLeashHolder = entity.isLeashHolder();
